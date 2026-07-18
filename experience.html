@@ -18,15 +18,21 @@
 <div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-[#00ffff]/5 blur-[150px]"></div>
 </div>
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-grid-margin py-6 bg-surface/60 backdrop-blur-xl border-b border-primary/20 shadow-[0_0_15px_rgba(207,188,255,0.1)]">
-<a href="index.html" class="font-label-caps text-label-caps text-xs tracking-tighter text-primary dark:text-primary hover:text-[#00ffff] transition-colors duration-300">DERVIS ACAR // DEV</a>
-<ul class="hidden md:flex gap-8 items-center">
-<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-caps text-label-caps" href="projects.html">PROJECTS</a></li>
-<li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-caps text-label-caps hover:backdrop-blur-2xl hover:bg-surface/80 transition-all scale-95 duration-200" href="experience.html">EXPERIENCE</a></li>
-<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-caps text-label-caps" href="stack.html">STACK</a></li>
-<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-caps text-label-caps" href="contact.html">CONTACT</a></li>
-</ul>
-<a href="contact.html" class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all flex items-center justify-center">GET IN TOUCH</a>
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-mobile-margin md:px-grid-margin py-6 bg-surface/60 backdrop-blur-xl border-b border-primary/20 shadow-[0_0_15px_rgba(207,188,255,0.1)]">
+<a href="index.html" class="font-label-caps text-label-caps text-xs tracking-tighter text-primary hover:text-[#00ffff] transition-colors duration-300">
+            DERVIS ACAR // DEV
+        </a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="projects.html">PROJECTS</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="experience.html">EXPERIENCE</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="stack.html">STACK</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="contact.html">CONTACT</a>
+</div>
+<a href="contact.html" class="hidden md:flex bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all flex items-center justify-center">GET IN TOUCH</a>
+<!-- Mobile Menu Icon (Simplified) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
 </nav>
 <main class="pt-32 pb-section-gap min-h-screen relative overflow-hidden">
 
@@ -55,47 +61,62 @@
 <p class="font-body-md text-body-md text-on-surface-variant">Primary technologies utilized for current production systems.</p>
 </div>
 <div class="col-span-12 md:col-span-8">
-<div class="glass-panel p-8 rounded-xl underglow-primary relative overflow-hidden">
-<!-- Constellation decorative elements -->
-<div class="absolute top-4 right-4 text-primary opacity-50 font-code-sm text-code-sm">:: NODE_01</div>
-<div class="absolute bottom-4 left-4 text-primary opacity-50 font-code-sm text-code-sm">:: NODE_02</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
-<!-- Skill Clusters -->
-<div class="space-y-4">
-<h3 class="font-label-caps text-label-caps text-primary border-b border-primary/30 pb-2">FRONTEND</h3>
-<ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> Vue.js</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> JavaScript</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> HTML/CSS</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> Blazor / Razor</li>
-</ul>
-</div>
-<div class="space-y-4">
-<h3 class="font-label-caps text-label-caps text-primary border-b border-primary/30 pb-2">BACKEND</h3>
-<ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shadow-[0_0_5px_rgba(231,195,101,0.8)]"></span> C# .NET</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shadow-[0_0_5px_rgba(231,195,101,0.8)]"></span> SQL</li>
-</ul>
-</div>
-<div class="space-y-4">
-<h3 class="font-label-caps text-label-caps text-primary border-b border-primary/30 pb-2">DEVOPS & CLOUD</h3>
-<ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-sm shadow-[0_0_5px_rgba(205,192,233,0.8)]"></span> Docker</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-sm shadow-[0_0_5px_rgba(205,192,233,0.8)]"></span> Oracle Cloud</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-sm shadow-[0_0_5px_rgba(205,192,233,0.8)]"></span> Nginx</li>
-</ul>
-</div>
-<div class="space-y-4">
-<h3 class="font-label-caps text-label-caps text-primary border-b border-primary/30 pb-2">LANGUAGES</h3>
-<ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> Dutch (Native)</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> English (Fluent)</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> French (Int.)</li>
-<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> Turkish (Int.)</li>
-</ul>
-</div>
-</div>
-</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Frontend Card -->
+        <div class="glass-panel p-6 rounded-xl underglow-primary relative overflow-hidden">
+            <div class="absolute top-4 right-4 text-primary opacity-50 font-code-sm text-code-sm">:: FE_01</div>
+            <div class="space-y-4 relative z-10">
+                <h3 class="font-label-caps text-label-caps text-primary border-b border-primary/30 pb-2">FRONTEND</h3>
+                <ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> Vue.js</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> JavaScript</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> HTML/CSS</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-sm shadow-[0_0_5px_rgba(207,188,255,0.8)]"></span> Blazor / Razor</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Backend Card -->
+        <div class="glass-panel p-6 rounded-xl underglow-tertiary relative overflow-hidden">
+            <div class="absolute top-4 right-4 text-tertiary opacity-50 font-code-sm text-code-sm">:: BE_02</div>
+            <div class="space-y-4 relative z-10">
+                <h3 class="font-label-caps text-label-caps text-tertiary border-b border-tertiary/30 pb-2">BACKEND</h3>
+                <ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shadow-[0_0_5px_rgba(231,195,101,0.8)]"></span> C# .NET</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shadow-[0_0_5px_rgba(231,195,101,0.8)]"></span> SQL</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DevOps & Cloud Card -->
+        <div class="glass-panel p-6 rounded-xl underglow-secondary relative overflow-hidden">
+            <div class="absolute top-4 right-4 text-secondary opacity-50 font-code-sm text-code-sm">:: OPS_03</div>
+            <div class="space-y-4 relative z-10">
+                <h3 class="font-label-caps text-label-caps text-secondary border-b border-secondary/30 pb-2">DEVOPS & CLOUD</h3>
+                <ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-sm shadow-[0_0_5px_rgba(205,192,233,0.8)]"></span> Docker</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-sm shadow-[0_0_5px_rgba(205,192,233,0.8)]"></span> Oracle Cloud</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-sm shadow-[0_0_5px_rgba(205,192,233,0.8)]"></span> Nginx</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Languages Card -->
+        <div class="glass-panel p-6 rounded-xl underglow-cyan relative overflow-hidden">
+            <div class="absolute top-4 right-4 text-[#00ffff] opacity-50 font-code-sm text-code-sm">:: LNG_04</div>
+            <div class="space-y-4 relative z-10">
+                <h3 class="font-label-caps text-label-caps text-[#00ffff] border-b border-[#00ffff]/30 pb-2">LANGUAGES</h3>
+                <ul class="space-y-3 font-code-sm text-code-sm text-on-surface">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> Dutch (Native)</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> English (Fluent)</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> French (Int.)</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shadow-[0_0_5px_rgba(0,255,255,0.8)]"></span> Turkish (Int.)</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
 </div>
 </div>
 </section>
