@@ -1,0 +1,8 @@
+# Paths rsync must never publish to the web root.
+.git/
+.github/
+.gitignore
+.deployignore
+.claude/
+.vs/
+assets/Architecture_Topology.md

@@ -1,0 +1,54 @@
+name: Deploy to Oracle Server
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to Oracle VM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Oracle VM via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        with:
+          host: ${{ secrets.ORACLE_HOST }}
+          username: ${{ secrets.ORACLE_USER }}
+          key: ${{ secrets.ORACLE_SSH_KEY }}
+          envs: GH_TOKEN,GH_REPO
+          script: |
+            cd /var/www/dervis.be
+            if [ ! -d .git ]; then
+              git init
+              git remote add origin https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git
+            fi
+            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git
+            git fetch origin master
+            git reset --hard origin/master
+            echo "Successfully deployed commit $(git rev-parse --short HEAD) to /var/www/dervis.be"
+
+      - name: Smoke test live site
+        run: |
+          echo "Verifying pages on https://dervis.be..."
+          for page in "" projects.html experience.html stack.html contact.html \
+                      project-rag.html project-queens-app.html case-study-rag.html; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://dervis.be/$page")
+            echo "$code https://dervis.be/$page"
+            [ "$code" = "200" ] || { echo "::error::https://dervis.be/$page returned $code"; exit 1; }
+          done
+          echo "All pages returned 200 OK!"
