@@ -1,106 +1,98 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
+
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>RAG System - DERVIS ACAR // DEV</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="assets/js/tailwind-config.js"></script>
-<link rel="stylesheet" href="assets/css/styles.css"/>
-<link rel="icon" type="image/png" href="assets/Images/favicon.png"/>
-</head>
-<body data-page="projects" class="flex min-h-screen flex-col bg-ink font-body-md text-body-md text-fg antialiased">
+<link rel="stylesheet" href="assets/css/styles.css" />
 
-<!-- Header -->
-<header data-site-header class="fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] border-b border-line bg-ink/85 backdrop-blur-md">
-<div class="wrap flex h-full items-center justify-between gap-6">
-<a href="index.html" class="text-[12px] font-medium uppercase tracking-[0.18em] text-fg transition-colors hover:text-accent">DERVIS ACAR <span class="subtle">// DEV</span></a>
-<nav class="hidden items-center gap-8 md:flex">
-<a class="nav-link" href="projects.html" aria-current="page">Projects</a>
-<a class="nav-link" href="experience.html">Experience</a>
-<a class="nav-link" href="stack.html">Stack</a>
-<a class="nav-link" href="contact.html">Contact</a>
-</nav>
-<div class="flex items-center gap-2">
-<a href="contact.html" class="btn btn-ghost hidden md:inline-flex">Get in touch</a>
-<button data-menu-toggle type="button" aria-expanded="false" aria-label="Open menu" class="-mr-2 flex h-10 w-10 items-center justify-center text-fg-2 transition-colors hover:text-fg md:hidden">
+<link rel="icon" type="image/png" href="assets/Images/favicon.png" />
+</head>
+<body class="antialiased min-h-screen relative overflow-x-hidden blueprint-bg selection:bg-neon-cyan selection:text-black">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-mobile-margin md:px-grid-margin py-6 bg-surface/60 backdrop-blur-xl border-b border-primary/20 shadow-[0_0_15px_rgba(207,188,255,0.1)]">
+<a href="index.html" class="font-label-caps text-label-caps text-xs tracking-tighter text-primary hover:text-[#00ffff] transition-colors duration-300">
+            DERVIS ACAR // DEV
+        </a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="projects.html">PROJECTS</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="experience.html">EXPERIENCE</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="stack.html">STACK</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="contact.html">CONTACT</a>
+</div>
+<a href="contact.html" class="hidden md:flex bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all flex items-center justify-center">GET IN TOUCH</a>
+<!-- Mobile Menu Icon (Simplified) -->
+<button class="md:hidden text-primary">
 <span class="material-symbols-outlined">menu</span>
 </button>
-</div>
-</div>
-</header>
+</nav>
 
-<main class="flex-1 pt-[var(--nav-h)]">
+<!-- Main Content Canvas -->
+<main class="pt-32 md:pt-48 pb-section-gap px-mobile-margin md:px-grid-margin max-w-[1920px] mx-auto">
+    <!-- Header Section -->
+    <header class="mb-section-gap relative">
+        <div class="absolute top-0 left-0 w-32 h-1 bg-neon-cyan opacity-50"></div>
+        <div class="font-label-caps text-label-caps text-neon-cyan mb-8 tracking-[0.2em] uppercase">
+            <span class="opacity-50 mr-2">01 //</span> FEATURED PROJECT
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative">
+            <div class="col-span-1 md:col-span-8 z-10">
+                <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8 leading-tight">
+                    RAG System
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+                    A comprehensive, tenant-isolated Retrieval-Augmented Generation web application. This platform enables users to securely upload documents, process them into a private vector knowledge base, and interface with an AI assistant that cites their own data. Built 100% independently.
+                </p>
+                <a href="https://ai.kosify.net" target="_blank" class="inline-flex items-center gap-3 bg-neon-cyan text-black px-8 py-4 font-label-caps text-label-caps uppercase rounded hover:shadow-[0_0_25px_rgba(0,255,255,0.8)] hover:scale-105 transition-all duration-300">
+                    <span class="material-symbols-outlined text-lg">public</span>
+                    VIEW LIVE DEPLOYMENT (ai.kosify.net)
+                </a>
+            </div>
+            <div class="col-span-1 md:col-span-4 flex items-end justify-start md:justify-end mt-12 md:mt-0">
+                <div class="glass-panel p-6 rounded-xl border border-white/10 relative underglow-cyan w-full">
+                    <div class="font-label-caps text-label-caps text-xs text-on-surface-variant mb-4">PROJECT METADATA</div>
+                    <ul class="font-code-sm text-code-sm text-on-background space-y-3">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-neon-cyan rounded-sm shadow-[0_0_8px_#0ff]"></span> ROLE: Solo Creator</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-acid-green rounded-sm shadow-[0_0_8px_#a3e635]"></span> DEPLOYED ON: Oracle Ubuntu</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-primary rounded-sm shadow-[0_0_8px_#cfbcff]"></span> SCOPE: Full Stack + AI Ops</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Page header -->
-<section>
-<div class="wrap pb-14 pt-20 md:pb-20 md:pt-28">
-<a href="projects.html" class="link-quiet mb-8 inline-flex items-center gap-2 text-[13px]">
-<span class="material-symbols-outlined text-[16px]">arrow_back</span> All projects
-</a>
-<p class="eyebrow mb-7"><span class="text-fg-3/60">01 //</span> Featured project</p>
-<div class="grid grid-cols-12 gap-x-0 md:gap-x-8 gap-y-10">
-<div class="col-span-12 md:col-span-7">
-<h1 class="mb-7 font-display-lg text-display-lg-mobile md:text-display-lg">RAG System</h1>
-<p class="measure mb-9 font-body-lg text-body-lg text-fg-2">
-A comprehensive, tenant-isolated Retrieval-Augmented Generation web application. This platform enables users to securely upload documents, process them into a private vector knowledge base, and interface with an AI assistant that cites their own data. Built 100% independently.
-</p>
-<a href="https://ai.kosify.net" target="_blank" rel="noopener" class="btn btn-lg btn-primary">
-<span class="material-symbols-outlined text-[16px]">public</span>
-View live deployment (ai.kosify.net)
-</a>
-</div>
-<div class="col-span-12 md:col-span-4 md:col-start-9">
-<div class="panel p-6">
-<h2 class="eyebrow mb-4 border-b border-line pb-3">Project metadata</h2>
-<dl class="space-y-3 font-code-sm text-[12.5px]">
-<div class="flex gap-2"><dt class="text-fg-3">ROLE:</dt><dd class="text-fg-2">Solo Creator</dd></div>
-<div class="flex gap-2"><dt class="text-fg-3">DEPLOYED ON:</dt><dd class="text-fg-2">Oracle Ubuntu</dd></div>
-<div class="flex gap-2"><dt class="text-fg-3">SCOPE:</dt><dd class="text-fg-2">Full Stack + AI Ops</dd></div>
-</dl>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- Architecture & Stack -->
+    <section class="mb-section-gap relative">
+        <div class="font-label-caps text-label-caps text-primary mb-6">TECHNOLOGY STACK & ARCHITECTURE</div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-neon-cyan mb-4 border-b border-white/10 pb-2">FRONTEND</h3>
+                <p class="font-body-md text-on-surface-variant">Vue 3, TypeScript, Vite, Vue Router, Pinia, Tailwind CSS, Reka UI, Headless UI, Chart.js</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-acid-green mb-4 border-b border-white/10 pb-2">BACKEND</h3>
+                <p class="font-body-md text-on-surface-variant">ASP.NET Core 8 Web API, C#, EF Core 8, PostgreSQL (Npgsql)</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-primary mb-4 border-b border-white/10 pb-2">INFRASTRUCTURE</h3>
+                <p class="font-body-md text-on-surface-variant">Oracle Ubuntu instance, Nginx reverse proxy, Systemd, Automated deployment scripts</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-tertiary mb-4 border-b border-white/10 pb-2">PROCESSING</h3>
+                <p class="font-body-md text-on-surface-variant">PdfPig, Custom parsers (.txt, .md, .docx), Internal RAG API, Vector Database</p>
+            </div>
+        </div>
 
-<!-- Technology stack & architecture -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-20">
-<h2 class="eyebrow mb-8">Technology stack &amp; architecture</h2>
-<div class="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
-<div class="bg-ink p-6">
-<h3 class="mb-3 border-b border-line pb-3 font-code-sm text-[12px] uppercase tracking-[0.1em] text-fg">Frontend</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">Vue 3, TypeScript, Vite, Vue Router, Pinia, Tailwind CSS, Reka UI, Headless UI, Chart.js</p>
-</div>
-<div class="bg-ink p-6">
-<h3 class="mb-3 border-b border-line pb-3 font-code-sm text-[12px] uppercase tracking-[0.1em] text-fg">Backend</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">ASP.NET Core 8 Web API, C#, EF Core 8, PostgreSQL (Npgsql)</p>
-</div>
-<div class="bg-ink p-6">
-<h3 class="mb-3 border-b border-line pb-3 font-code-sm text-[12px] uppercase tracking-[0.1em] text-fg">Infrastructure</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">Oracle Ubuntu instance, Nginx reverse proxy, Systemd, Automated deployment scripts</p>
-</div>
-<div class="bg-ink p-6">
-<h3 class="mb-3 border-b border-line pb-3 font-code-sm text-[12px] uppercase tracking-[0.1em] text-fg">Processing</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">PdfPig, Custom parsers (.txt, .md, .docx), Internal RAG API, Vector Database</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- System topology (diagram unchanged) -->
-<section class="border-t border-line">
-<div class="wrap wrap-wide py-16 md:py-20">
-<h2 class="eyebrow mb-8">System topology</h2>
-<div class="diagram-shell p-4 md:p-8">
-<div class="flex w-full justify-start overflow-x-auto pb-8 xl:justify-center">
-<div class="w-full min-w-[1000px]">
-<svg viewBox="0 0 1400 550" style="overflow: visible;" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+        <div class="glass-panel rounded-xl p-6 md:p-8 relative underglow-cyan w-full max-w-7xl mx-auto">
+            <h3 class="font-label-caps text-label-caps text-neon-cyan mb-8">SYSTEM TOPOLOGY</h3>
+            
+            <div class="flex justify-start xl:justify-center pb-8 w-full overflow-x-auto">
+    <div class="min-w-[1000px] w-full">
+                        <svg viewBox="0 0 1400 550" style="overflow: visible;" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="glow-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stop-color="rgba(0,255,255,0.2)" />
@@ -253,121 +245,119 @@ View live deployment (ai.kosify.net)
                 </div>
             </foreignObject>
         </svg>
-</div>
+    </div>
 </div>
 
 <!-- Legend -->
-<div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-4 font-code-sm text-[11px] text-on-surface-variant">
-<div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-neon-cyan"></span> HTTPS / REST</div>
-<div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-error"></span> TCP Stream (ClamAV)</div>
-<div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-acid-green"></span> SQL / EF Core</div>
-<div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-[#cfbcff]"></span> EventStream (SSE) / Data</div>
+<div class="mt-4 border-t border-white/10 pt-4 font-code-sm text-[11px] text-on-surface-variant flex flex-wrap gap-6">
+    <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-neon-cyan"></span> HTTPS / REST</div>
+    <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-error"></span> TCP Stream (ClamAV)</div>
+    <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-acid-green"></span> SQL / EF Core</div>
+    <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-[#cfbcff]"></span> EventStream (SSE) / Data</div>
 </div>
-</div>
-</div>
-</section>
+            </div>
+        </div>
+    </section>
 
-<!-- Core engineering features -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-20">
-<h2 class="eyebrow mb-8">Core engineering features</h2>
-<div class="grid grid-cols-1 gap-px bg-line md:grid-cols-2 lg:grid-cols-3">
+    <!-- Key Features Grid -->
+    <section class="mb-section-gap">
+        <div class="font-label-caps text-label-caps text-neon-cyan mb-8">CORE ENGINEERING FEATURES</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-neon-cyan">security</span>
+                    <h3 class="font-headline-md text-lg text-white">Auth & Workspace Isolation</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">JWT-based Identity with email verification. Strict tenant isolation ensures all documents, chunks, and chats are scoped by `workspaceId` derived securely from the backend token.</p>
+            </div>
 
-<article class="bg-ink p-7">
-<span class="material-symbols-outlined mb-4 block text-[20px] text-fg-3">security</span>
-<h3 class="mb-2.5 font-headline-md text-[17px] leading-6 text-fg">Auth &amp; Workspace Isolation</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">JWT-based Identity with email verification. Strict tenant isolation ensures all documents, chunks, and chats are scoped by <code>workspaceId</code> derived securely from the backend token.</p>
-</article>
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-acid-green">account_tree</span>
+                    <h3 class="font-headline-md text-lg text-white">Async Ingestion Pipeline</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">A robust job chain: Malware Scan → Text Extraction → Chunking → Embedding → Vector Indexing. Features real-time UI progress tracking via `IngestionJob` entities.</p>
+            </div>
 
-<article class="bg-ink p-7">
-<span class="material-symbols-outlined mb-4 block text-[20px] text-fg-3">account_tree</span>
-<h3 class="mb-2.5 font-headline-md text-[17px] leading-6 text-fg">Async Ingestion Pipeline</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">A robust job chain: Malware Scan → Text Extraction → Chunking → Embedding → Vector Indexing. Features real-time UI progress tracking via <code>IngestionJob</code> entities.</p>
-</article>
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-primary">forum</span>
+                    <h3 class="font-headline-md text-lg text-white">Streaming Chat & Citations</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">Real-time LLM responses grounded strictly in user documents. Includes a citation panel showing the exact source document name and text excerpt that generated the answer.</p>
+            </div>
 
-<article class="bg-ink p-7">
-<span class="material-symbols-outlined mb-4 block text-[20px] text-fg-3">forum</span>
-<h3 class="mb-2.5 font-headline-md text-[17px] leading-6 text-fg">Streaming Chat &amp; Citations</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">Real-time LLM responses grounded strictly in user documents. Includes a citation panel showing the exact source document name and text excerpt that generated the answer.</p>
-</article>
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-tertiary">tune</span>
+                    <h3 class="font-headline-md text-lg text-white">Assistant Configuration</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">Per-workspace settings to control AI behavior: tone, output length, strict grounding limits, language, and custom system instructions.</p>
+            </div>
 
-<article class="bg-ink p-7">
-<span class="material-symbols-outlined mb-4 block text-[20px] text-fg-3">tune</span>
-<h3 class="mb-2.5 font-headline-md text-[17px] leading-6 text-fg">Assistant Configuration</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">Per-workspace settings to control AI behavior: tone, output length, strict grounding limits, language, and custom system instructions.</p>
-</article>
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-error">shield_lock</span>
+                    <h3 class="font-headline-md text-lg text-white">Protection & Limits</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">Cloudflare Turnstile integration, per-user rate limiting (uploads/hr, chats/min), size validations, and automated malware scanning quarantine flows.</p>
+            </div>
 
-<article class="bg-ink p-7">
-<span class="material-symbols-outlined mb-4 block text-[20px] text-fg-3">shield_lock</span>
-<h3 class="mb-2.5 font-headline-md text-[17px] leading-6 text-fg">Protection &amp; Limits</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">Cloudflare Turnstile integration, per-user rate limiting (uploads/hr, chats/min), size validations, and automated malware scanning quarantine flows.</p>
-</article>
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-secondary">monitoring</span>
+                    <h3 class="font-headline-md text-lg text-white">Admin Dashboards & Analytics</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">Internal analytics tracking product events. Features custom Chart.js dashboards for usage overview, ingestion health, conversions, and abuse detection.</p>
+            </div>
 
-<article class="bg-ink p-7">
-<span class="material-symbols-outlined mb-4 block text-[20px] text-fg-3">monitoring</span>
-<h3 class="mb-2.5 font-headline-md text-[17px] leading-6 text-fg">Admin Dashboards &amp; Analytics</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">Internal analytics tracking product events. Features custom Chart.js dashboards for usage overview, ingestion health, conversions, and abuse detection.</p>
-</article>
+        </div>
+    </section>
 
-</div>
-</div>
-</section>
-
-<!-- Advanced AI capabilities -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-20">
-<div class="grid grid-cols-12 gap-x-0 md:gap-x-8 gap-y-10">
-<div class="col-span-12 md:col-span-4">
-<h2 class="font-headline-md text-headline-md text-fg">Advanced AI Capabilities</h2>
-</div>
-<div class="col-span-12 md:col-span-7 md:col-start-6">
-<div class="border-t border-line">
-<article class="border-b border-line py-7">
-<h3 class="mb-2.5 font-code-sm text-[12px] uppercase tracking-[0.1em] text-fg-3">01 // Automated workflows</h3>
-<p class="font-body-md text-body-md text-fg-2">Predefined AI workflow templates allowing users to run complex tasks instantly: Email Drafting, Sales Responses, Support Tickets, Compliance Checks, Lead Extraction, and Policy Summaries.</p>
-</article>
-<article class="border-b border-line py-7">
-<h3 class="mb-2.5 font-code-sm text-[12px] uppercase tracking-[0.1em] text-fg-3">02 // Proposal &amp; quote generator</h3>
-<p class="font-body-md text-body-md text-fg-2">A specialized sales use-case that creates professional customer quotes by looking up pricing information directly from the uploaded knowledge base.</p>
-</article>
-<article class="border-b border-line py-7">
-<h3 class="mb-2.5 font-code-sm text-[12px] uppercase tracking-[0.1em] text-fg-3">03 // PII anonymization showcase</h3>
-<p class="font-body-md text-body-md text-fg-2">Showcases advanced data privacy capabilities by scanning input text and automatically detecting/highlighting Personally Identifiable Information (Names, Emails, Phone numbers) before processing.</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- CTA -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-24">
-<div class="max-w-xl">
-<h2 class="mb-4 font-headline-md text-headline-md text-fg">Experience the Platform</h2>
-<p class="mb-8 font-body-md text-body-md text-fg-2">Create a free account, upload your documents, or use one of the pre-loaded datasets (HR handbooks, product manuals) to test the RAG engine immediately.</p>
-<a href="https://ai.kosify.net" target="_blank" rel="noopener" class="btn btn-lg btn-primary">
-Launch ai.kosify.net
-<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-</a>
-</div>
-</div>
-</section>
+    <!-- Additional Capabilities -->
+    <section class="mb-section-gap relative md:tech-gutter md:pl-12">
+        <h2 class="font-headline-md text-headline-md text-on-background mb-8">Advanced AI Capabilities</h2>
+        <div class="space-y-8">
+            <div>
+                <h4 class="font-code-sm text-neon-cyan mb-2">01 // AUTOMATED WORKFLOWS</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">Predefined AI workflow templates allowing users to run complex tasks instantly: Email Drafting, Sales Responses, Support Tickets, Compliance Checks, Lead Extraction, and Policy Summaries.</p>
+            </div>
+            <div>
+                <h4 class="font-code-sm text-acid-green mb-2">02 // PROPOSAL & QUOTE GENERATOR</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">A specialized sales use-case that creates professional customer quotes by looking up pricing information directly from the uploaded knowledge base.</p>
+            </div>
+            <div>
+                <h4 class="font-code-sm text-primary mb-2">03 // PII ANONYMIZATION SHOWCASE</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">Showcases advanced data privacy capabilities by scanning input text and automatically detecting/highlighting Personally Identifiable Information (Names, Emails, Phone numbers) before processing.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="mb-section-gap text-center">
+        <div class="glass-panel p-12 rounded-xl inline-block relative underglow-cyan overflow-hidden">
+            <h2 class="font-headline-md text-white mb-4">Experience the Platform</h2>
+            <p class="font-body-md text-on-surface-variant mb-8 max-w-lg mx-auto">Create a free account, upload your documents, or use one of the pre-loaded datasets (HR handbooks, product manuals) to test the RAG engine immediately.</p>
+            <a href="https://ai.kosify.net" target="_blank" class="inline-flex items-center gap-2 bg-neon-cyan text-black px-8 py-4 font-label-caps text-label-caps uppercase rounded hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
+                LAUNCH ai.kosify.net
+            </a>
+        </div>
+    </section>
 
 </main>
 
 <!-- Footer -->
-<footer class="mt-auto border-t border-line">
-<div class="wrap flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between">
-<p class="text-[13px] text-fg-3">©2026 Dervis Acar. All rights reserved.</p>
-<nav class="flex flex-wrap gap-7 text-[13px]">
-<a class="link-quiet" href="https://github.com/Dervis-Acar" target="_blank" rel="noopener">GitHub</a>
-<a class="link-quiet" href="https://www.linkedin.com/in/dervis-acar" target="_blank" rel="noopener">LinkedIn</a>
-<a class="link-quiet" href="mailto:acar@dervis.be">Email</a>
-</nav>
+<footer class="bg-surface border-t border-outline-variant/30 full-width relative grid grid-cols-12 gap-4 px-grid-margin py-4 md:py-6 w-full items-center text-primary">
+<div class="col-span-12 md:col-span-6 font-label-caps text-label-caps text-xs text-on-surface-variant uppercase">
+            ©2026 Dervis Acar. All rights reserved.
+        </div>
+<div class="col-span-12 md:col-span-6 flex gap-6 justify-start md:justify-end font-label-caps text-label-caps text-xs">
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="https://github.com/Dervis-Acar" target="_blank">GITHUB</a>
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="https://www.linkedin.com/in/dervis-acar" target="_blank">LINKEDIN</a>
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="mailto:acar@dervis.be">EMAIL</a>
 </div>
 </footer>
 
 <script src="assets/js/mobile-menu.js"></script>
-</body>
-</html>
+</body></html>

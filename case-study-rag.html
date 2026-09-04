@@ -1,191 +1,188 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
+
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Enterprise RAG System Case Study</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="assets/js/tailwind-config.js"></script>
-<link rel="stylesheet" href="assets/css/styles.css"/>
-<link rel="icon" type="image/png" href="assets/Images/favicon.png"/>
-</head>
-<body data-page="projects" class="flex min-h-screen flex-col bg-ink font-body-md text-body-md text-fg antialiased">
+<link rel="stylesheet" href="assets/css/styles.css" />
 
-<!-- Header -->
-<header data-site-header class="fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] border-b border-line bg-ink/85 backdrop-blur-md">
-<div class="wrap flex h-full items-center justify-between gap-6">
-<a href="index.html" class="text-[12px] font-medium uppercase tracking-[0.18em] text-fg transition-colors hover:text-accent">DERVIS ACAR <span class="subtle">// DEV</span></a>
-<nav class="hidden items-center gap-8 md:flex">
-<a class="nav-link" href="projects.html" aria-current="page">Projects</a>
-<a class="nav-link" href="experience.html">Experience</a>
-<a class="nav-link" href="stack.html">Stack</a>
-<a class="nav-link" href="contact.html">Contact</a>
-</nav>
-<div class="flex items-center gap-2">
-<a href="contact.html" class="btn btn-ghost hidden md:inline-flex">Get in touch</a>
-<button data-menu-toggle type="button" aria-expanded="false" aria-label="Open menu" class="-mr-2 flex h-10 w-10 items-center justify-center text-fg-2 transition-colors hover:text-fg md:hidden">
+<link rel="icon" type="image/png" href="assets/Images/favicon.png" />
+</head>
+<body class="antialiased min-h-screen relative overflow-x-hidden blueprint-bg selection:bg-neon-cyan selection:text-black">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-mobile-margin md:px-grid-margin py-6 bg-surface/60 backdrop-blur-xl border-b border-primary/20 shadow-[0_0_15px_rgba(207,188,255,0.1)]">
+<a href="index.html" class="font-label-caps text-label-caps text-xs tracking-tighter text-primary hover:text-[#00ffff] transition-colors duration-300">
+            DERVIS ACAR // DEV
+        </a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="projects.html">PROJECTS</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="experience.html">EXPERIENCE</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="stack.html">STACK</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="contact.html">CONTACT</a>
+</div>
+<a href="contact.html" class="hidden md:flex bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all flex items-center justify-center">GET IN TOUCH</a>
+<!-- Mobile Menu Icon (Simplified) -->
+<button class="md:hidden text-primary">
 <span class="material-symbols-outlined">menu</span>
 </button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 md:pt-48 pb-section-gap px-mobile-margin md:px-grid-margin max-w-[1920px] mx-auto">
+<!-- Header Section -->
+<header class="mb-section-gap relative">
+<div class="absolute top-0 left-0 w-32 h-1 bg-neon-cyan opacity-50"></div>
+<div class="font-label-caps text-label-caps text-neon-cyan mb-8 tracking-[0.2em] uppercase">
+<span class="opacity-50 mr-2">01 //</span> SYSTEM ARCHITECTURE
+            </div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative">
+<div class="col-span-1 md:col-span-8 z-10">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8 leading-tight">
+                        ENTERPRISE RAG SYSTEM
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Architecting a scalable Retrieval-Augmented Generation pipeline to reduce AI hallucination rates across 50,000+ internal documents while maintaining sub-800ms query latency.
+                    </p>
 </div>
+<div class="col-span-1 md:col-span-4 flex items-end justify-start md:justify-end mt-8 md:mt-0">
+<div class="glass-panel p-6 rounded-xl border border-white/10 relative underglow-cyan">
+<div class="font-label-caps text-label-caps text-xs text-on-surface-variant mb-2">PROJECT METADATA</div>
+<ul class="font-code-sm text-code-sm text-on-background space-y-2">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-neon-cyan rounded-sm"></span> ROLE: Lead Architect</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-neon-cyan rounded-sm"></span> TIMELINE: 4 Months</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-neon-cyan rounded-sm"></span> TECH: Python, LangChain, Pinecone</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="mt-16 w-full h-64 md:h-[500px] glass-panel rounded-xl overflow-hidden border border-white/10 relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-transparent to-black/50 z-10 pointer-events-none"></div>
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" data-alt="A highly detailed, cinematic visualization of a digital data retrieval system. Glowing cyan and acid green data streams flow through a complex, futuristic dark-mode architecture. The scene is illuminated by striking neon highlights against a deep midnight charcoal background, embodying a high-end, technical 'cyber-professional' aesthetic. Intricate glowing nodes and connecting lines suggest neural networks and vast databases." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOgtY3RYtteFyL2ivc-2fjDeteckaktdfyZghaWUngeW1CfJs3bluWr-0np8GKHxFZxUddQKeMvSFwNbHYe-zHC4yz_HLYxVwPQtZAZSZJSWCGcDge5O0aCSO8I_Xaz4GRirLaUUbVy_yxyYwY6-MvlMIbDQKzWW8w5FiyMRgBUI-D9DmeWQ_enU1nf4tYxZtobw1AjY1CmZH2IE4dUf421dEqs1qhTKH-X3T7ZnYjCwTmD3laHHa8WEWGfLoQn_c0Gue7g-78"/>
+<div class="absolute bottom-6 left-6 z-20 font-code-sm text-code-sm text-white/50 bg-black/50 px-3 py-1 rounded">FIG. 1 - DATA PIPELINE VISUALIZATION</div>
 </div>
 </header>
-
-<main class="flex-1 pt-[var(--nav-h)]">
-
-<!-- Page header -->
-<section>
-<div class="wrap pb-14 pt-20 md:pb-16 md:pt-28">
-<p class="eyebrow mb-7"><span class="text-fg-3/60">01 //</span> System architecture</p>
-<div class="grid grid-cols-12 gap-x-0 md:gap-x-8 gap-y-10">
-<div class="col-span-12 md:col-span-7">
-<h1 class="mb-7 font-display-lg text-display-lg-mobile md:text-display-lg">Enterprise RAG System</h1>
-<p class="measure font-body-lg text-body-lg text-fg-2">
-Architecting a scalable Retrieval-Augmented Generation pipeline to reduce AI hallucination rates across 50,000+ internal documents while maintaining sub-800ms query latency.
-</p>
-</div>
-<div class="col-span-12 md:col-span-4 md:col-start-9 md:self-end">
-<div class="panel p-6">
-<h2 class="eyebrow mb-4 border-b border-line pb-3">Project metadata</h2>
-<dl class="space-y-3 font-code-sm text-[12.5px]">
-<div class="flex gap-2"><dt class="text-fg-3">ROLE:</dt><dd class="text-fg-2">Lead Architect</dd></div>
-<div class="flex gap-2"><dt class="text-fg-3">TIMELINE:</dt><dd class="text-fg-2">4 Months</dd></div>
-<div class="flex gap-2"><dt class="text-fg-3">TECH:</dt><dd class="text-fg-2">Python, LangChain, Pinecone</dd></div>
-</dl>
+<!-- Magazine Layout: Problem & Solution -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-section-gap">
+<!-- Left Column: The Problem -->
+<div class="col-span-1 md:col-span-5 md:pr-12 md:tech-gutter relative">
+<div class="font-label-caps text-label-caps text-primary mb-6">THE PROBLEM</div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-6">Hallucination at Scale</h2>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-6">
+<p>
+                        The client's existing LLM implementation was failing to provide accurate answers when queried against their vast, unstrctured internal knowledge base. Hallucination rates were unacceptably high (approaching 15% on technical queries), leading to diminished trust among internal engineering teams.
+                    </p>
+<p>
+                        Traditional fine-tuning proved too brittle and expensive to maintain given the velocity of document updates. The system needed context, not just generalized weights.
+                    </p>
 </div>
 </div>
+<!-- Right Column: The Solution -->
+<div class="col-span-1 md:col-span-7 mt-12 md:mt-0">
+<div class="font-label-caps text-label-caps text-acid-green mb-6">THE SOLUTION</div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-6">Semantic Search Engine</h2>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-6 mb-12">
+<p>
+                        We implemented an advanced Retrieval-Augmented Generation (RAG) architecture. By converting the 50k+ documents into dense vector embeddings and storing them in a high-performance vector database, we allowed the LLM to search for and retrieve relevant context *before* generating a response.
+                    </p>
 </div>
-
-<!-- Hero image -->
-<figure class="mt-14">
-<div class="overflow-hidden rounded-[3px] border border-line bg-ink-2">
-<img class="h-64 w-full object-cover md:h-[440px]" data-alt="A highly detailed, cinematic visualization of a digital data retrieval system. Glowing cyan and acid green data streams flow through a complex, futuristic dark-mode architecture. The scene is illuminated by striking neon highlights against a deep midnight charcoal background, embodying a high-end, technical 'cyber-professional' aesthetic. Intricate glowing nodes and connecting lines suggest neural networks and vast databases." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOgtY3RYtteFyL2ivc-2fjDeteckaktdfyZghaWUngeW1CfJs3bluWr-0np8GKHxFZxUddQKeMvSFwNbHYe-zHC4yz_HLYxVwPQtZAZSZJSWCGcDge5O0aCSO8I_Xaz4GRirLaUUbVy_yxyYwY6-MvlMIbDQKzWW8w5FiyMRgBUI-D9DmeWQ_enU1nf4tYxZtobw1AjY1CmZH2IE4dUf421dEqs1qhTKH-X3T7ZnYjCwTmD3laHHa8WEWGfLoQn_c0Gue7g-78"/>
+<!-- Terminal Block -->
+<div class="bg-black border border-white/10 rounded-xl overflow-hidden shadow-2xl relative">
+<div class="bg-surface-container-highest px-4 py-2 flex items-center gap-2 border-b border-white/10">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<div class="w-3 h-3 rounded-full bg-acid-green animate-pulse"></div>
+<div class="ml-4 font-code-sm text-code-sm text-on-surface-variant opacity-70">pipeline.py</div>
 </div>
-<figcaption class="mt-3 font-code-sm text-[11px] text-fg-3">FIG. 1 — DATA PIPELINE VISUALIZATION</figcaption>
-</figure>
-</div>
-</section>
-
-<!-- Problem & Solution -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-20">
-<div class="grid grid-cols-12 gap-x-0 md:gap-x-8 gap-y-14">
-
-<div class="col-span-12 md:col-span-5">
-<h2 class="eyebrow mb-5">The problem</h2>
-<h3 class="mb-5 font-headline-md text-headline-md text-fg">Hallucination at Scale</h3>
-<div class="space-y-5 font-body-md text-body-md text-fg-2">
-<p>The client's existing LLM implementation was failing to provide accurate answers when queried against their vast, unstrctured internal knowledge base. Hallucination rates were unacceptably high (approaching 15% on technical queries), leading to diminished trust among internal engineering teams.</p>
-<p>Traditional fine-tuning proved too brittle and expensive to maintain given the velocity of document updates. The system needed context, not just generalized weights.</p>
-</div>
-</div>
-
-<div class="col-span-12 md:col-span-6 md:col-start-7">
-<h2 class="eyebrow mb-5">The solution</h2>
-<h3 class="mb-5 font-headline-md text-headline-md text-fg">Semantic Search Engine</h3>
-<p class="mb-8 font-body-md text-body-md text-fg-2">
-We implemented an advanced Retrieval-Augmented Generation (RAG) architecture. By converting the 50k+ documents into dense vector embeddings and storing them in a high-performance vector database, we allowed the LLM to search for and retrieve relevant context *before* generating a response.
-</p>
-
-<div class="terminal-block overflow-hidden">
-<div class="flex items-center gap-2 border-b border-line px-3.5 py-2.5">
-<span class="h-1.5 w-1.5 rounded-full bg-fg-3"></span>
-<span class="h-1.5 w-1.5 rounded-full bg-fg-3"></span>
-<span class="h-1.5 w-1.5 rounded-full bg-fg-3"></span>
-<span class="ml-2 font-code-sm text-[11px] text-fg-3">pipeline.py</span>
-</div>
-<div class="overflow-x-auto p-5">
-<pre class="font-code-sm text-[12px] leading-[22px] text-fg-2"><span class="text-accent">def</span> <span class="text-fg">retrieve_and_generate</span>(query: str, index: VectorStore) -&gt; str:
-    <span class="text-fg-3"># 1. Embed the user query</span>
+<div class="p-6 overflow-x-auto terminal-scroll">
+<pre class="font-code-sm text-code-sm text-acid-green leading-relaxed"><span class="text-primary">def</span> <span class="text-white">retrieve_and_generate</span>(query: str, index: VectorStore) -&gt; str:
+    <span class="text-on-surface-variant"># 1. Embed the user query</span>
     query_embedding = embedding_model.embed(query)
-
-    <span class="text-fg-3"># 2. Retrieve top-k similar documents</span>
+    
+    <span class="text-on-surface-variant"># 2. Retrieve top-k similar documents</span>
     context_docs = index.similarity_search(
-        query_embedding,
-        k=5,
+        query_embedding, 
+        k=5, 
         filter={"status": "verified"}
     )
-
-    <span class="text-fg-3"># 3. Construct augmented prompt</span>
+    
+    <span class="text-on-surface-variant"># 3. Construct augmented prompt</span>
     prompt = f"""
     Context: {format_docs(context_docs)}
     Query: {query}
     Answer using ONLY the provided context.
     """
-
-    <span class="text-fg-3"># 4. Generate response</span>
-    <span class="text-accent">return</span> llm.predict(prompt)
+    
+    <span class="text-on-surface-variant"># 4. Generate response</span>
+    <span class="text-primary">return</span> llm.predict(prompt)
 </pre>
 </div>
 </div>
 </div>
-
-</div>
-</div>
 </section>
-
-<!-- Critical challenge -->
-<section class="border-t border-line bg-ink-2">
-<div class="wrap py-16 md:py-20">
-<div class="grid grid-cols-12 gap-x-0 md:gap-x-8 gap-y-8">
-<div class="col-span-12 md:col-span-4">
-<h2 class="eyebrow mb-5">Critical challenge</h2>
-<h3 class="font-headline-md text-headline-md text-fg">Chunking Strategy</h3>
+<!-- The Hardest Part (Pull Quote / Tension Layout) -->
+<section class="mb-section-gap relative py-16">
+<div class="absolute inset-0 bg-surface-container-low border-y border-white/5 -mx-mobile-margin md:-mx-grid-margin px-mobile-margin md:px-grid-margin flex items-center">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 w-full">
+<div class="col-span-1 md:col-span-4 flex flex-col justify-center">
+<div class="font-label-caps text-label-caps text-error mb-4">CRITICAL CHALLENGE</div>
+<h3 class="font-headline-md text-headline-md text-on-background">Chunking Strategy</h3>
 </div>
-<div class="col-span-12 md:col-span-7 md:col-start-6">
-<blockquote class="border-l border-line-2 pl-6 font-headline-md text-[21px] leading-[34px] tracking-[-0.015em] text-fg">
-The naïve approach of splitting documents by character count destroyed semantic meaning. We had to build a custom chunker that understood code blocks, markdown headers, and structural hierarchy to preserve context.
-</blockquote>
+<div class="col-span-1 md:col-span-8 md:tech-gutter md:pl-12">
+<blockquote class="font-display-lg-mobile md:font-headline-md text-display-lg-mobile md:text-headline-md text-primary leading-tight relative">
+<span class="absolute -left-8 -top-4 text-6xl text-white/10 font-serif">"</span>
+                            The naïve approach of splitting documents by character count destroyed semantic meaning. We had to build a custom chunker that understood code blocks, markdown headers, and structural hierarchy to preserve context.
+                        </blockquote>
 </div>
 </div>
 </div>
 </section>
-
-<!-- Outcomes & metrics -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-20">
-<h2 class="eyebrow mb-10">Outcomes &amp; metrics</h2>
-<div class="grid grid-cols-1 gap-px bg-line md:grid-cols-3">
-
-<div class="bg-ink p-8">
-<p class="mb-2 font-display-lg text-[44px] leading-none tracking-[-0.03em] text-fg">99%</p>
-<p class="mb-5 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">Reduction in Hallucinations</p>
-<div class="h-px w-full bg-line-2"><div class="h-px w-[99%] bg-fg-2"></div></div>
+<!-- Results / Metrics (Glowing Cards) -->
+<section class="mb-section-gap">
+<div class="font-label-caps text-label-caps text-neon-cyan mb-12 text-center">OUTCOMES &amp; METRICS</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Metric 1 -->
+<div class="glass-panel p-8 rounded-xl border border-white/10 underglow-cyan text-center group hover:-translate-y-2 transition-transform duration-300">
+<div class="font-display-lg text-display-lg text-white group-hover:text-neon-cyan transition-colors duration-300 mb-2">99%</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-widest">Reduction in Hallucinations</div>
+<div class="mt-4 w-full h-1 bg-surface-container-highest rounded overflow-hidden">
+<div class="h-full bg-neon-cyan w-[99%]"></div>
 </div>
-
-<div class="bg-ink p-8">
-<p class="mb-2 font-display-lg text-[44px] leading-none tracking-[-0.03em] text-fg">650<span class="text-[22px] text-fg-2">ms</span></p>
-<p class="mb-5 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">P95 Query Latency</p>
-<div class="h-px w-full bg-line-2"><div class="h-px w-[85%] bg-fg-2"></div></div>
 </div>
-
-<div class="bg-ink p-8">
-<p class="mb-2 font-display-lg text-[44px] leading-none tracking-[-0.03em] text-fg">50k+</p>
-<p class="mb-5 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">Documents Embedded</p>
-<div class="h-px w-full bg-line-2"><div class="h-px w-full bg-fg-2"></div></div>
+<!-- Metric 2 -->
+<div class="glass-panel p-8 rounded-xl border border-white/10 underglow-cyan text-center group hover:-translate-y-2 transition-transform duration-300">
+<div class="font-display-lg text-display-lg text-white group-hover:text-acid-green transition-colors duration-300 mb-2">650<span class="text-headline-md">ms</span></div>
+<div class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-widest">P95 Query Latency</div>
+<div class="mt-4 w-full h-1 bg-surface-container-highest rounded overflow-hidden">
+<div class="h-full bg-acid-green w-[85%]"></div>
 </div>
-
+</div>
+<!-- Metric 3 -->
+<div class="glass-panel p-8 rounded-xl border border-white/10 underglow-cyan text-center group hover:-translate-y-2 transition-transform duration-300">
+<div class="font-display-lg text-display-lg text-white group-hover:text-primary transition-colors duration-300 mb-2">50k+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-widest">Documents Embedded</div>
+<div class="mt-4 w-full h-1 bg-surface-container-highest rounded overflow-hidden">
+<div class="h-full bg-primary w-[100%]"></div>
+</div>
 </div>
 </div>
 </section>
-
 </main>
-
 <!-- Footer -->
-<footer class="mt-auto border-t border-line">
-<div class="wrap flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between">
-<p class="text-[13px] text-fg-3">©2026 Dervis Acar. All rights reserved.</p>
-<nav class="flex flex-wrap gap-7 text-[13px]">
-<a class="link-quiet" href="https://github.com/Dervis-Acar" target="_blank" rel="noopener">GitHub</a>
-<a class="link-quiet" href="https://www.linkedin.com/in/dervis-acar" target="_blank" rel="noopener">LinkedIn</a>
-<a class="link-quiet" href="mailto:acar@dervis.be">Email</a>
-</nav>
+<footer class="bg-surface border-t border-outline-variant/30 full-width relative grid grid-cols-12 gap-4 px-grid-margin py-4 md:py-6 w-full items-center text-primary">
+<div class="col-span-12 md:col-span-6 font-label-caps text-label-caps text-xs text-on-surface-variant uppercase">
+            ©2026 Dervis Acar. All rights reserved.
+        </div>
+<div class="col-span-12 md:col-span-6 flex gap-6 justify-start md:justify-end font-label-caps text-label-caps text-xs">
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="https://github.com/Dervis-Acar" target="_blank">GITHUB</a>
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="https://www.linkedin.com/in/dervis-acar" target="_blank">LINKEDIN</a>
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="mailto:acar@dervis.be">EMAIL</a>
 </div>
 </footer>
 
 <script src="assets/js/mobile-menu.js"></script>
-</body>
-</html>
+</body></html>
