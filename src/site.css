@@ -104,7 +104,8 @@ body {
    diagram was authored against. This is a no-op today but stops any
    future change to base typography from silently reflowing it. */
 
-svg[viewBox="0 0 1400 550"] {
+svg[viewBox="0 0 1400 550"],
+svg[viewBox="0 0 1400 680"] {
     font-size: 16px;
     line-height: 1.5;
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",

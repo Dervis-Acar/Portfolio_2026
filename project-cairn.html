@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cairn - DERVIS ACAR // DEV</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/site.css?v=c5b6777c34"/>
+
+<link rel="icon" type="image/png" href="assets/Images/favicon.png" />
+</head>
+<body class="antialiased min-h-screen relative overflow-x-hidden blueprint-bg selection:bg-acid-green selection:text-black">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-mobile-margin md:px-grid-margin py-6 bg-surface/60 backdrop-blur-xl border-b border-primary/20 shadow-[0_0_15px_rgba(207,188,255,0.1)]">
+<a href="index.html" class="font-label-caps text-label-caps text-xs tracking-tighter text-primary hover:text-[#00ffff] transition-colors duration-300">
+            DERVIS ACAR // DEV
+        </a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="projects.html">PROJECTS</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="experience.html">EXPERIENCE</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="stack.html">STACK</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="contact.html">CONTACT</a>
+</div>
+<a href="contact.html" class="hidden md:flex bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all flex items-center justify-center">GET IN TOUCH</a>
+<!-- Mobile Menu Icon (Simplified) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+
+<!-- Main Content Canvas -->
+<main class="pt-32 md:pt-48 pb-section-gap px-mobile-margin md:px-grid-margin max-w-[1920px] mx-auto">
+
+    <!-- Header Section -->
+    <header class="mb-section-gap relative">
+        <div class="absolute top-0 left-0 w-32 h-1 bg-acid-green opacity-50"></div>
+        <div class="font-label-caps text-label-caps text-acid-green mb-8 tracking-[0.2em] uppercase">
+            <span class="opacity-50 mr-2">03 //</span> FEATURED PROJECT
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative">
+            <div class="col-span-1 md:col-span-8 z-10">
+                <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-3 leading-tight">
+                    Cairn
+                </h1>
+                <p class="font-code-sm text-code-sm text-acid-green mb-8 tracking-wider">One stone at a time.</p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-6">
+                    An installable progressive web app that runs a whole day: tasks, calendar, focus sessions, nutrition, body composition, work hours, reading notes and startup idea validation. It is self hosted, in production, and used daily.
+                </p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+                    The part worth looking at is the voice assistant. You hold a button, say a sentence in Dutch or English, and it becomes real rows in Postgres. Getting that right was far less about calling a model than about the validation boundary around it.
+                </p>
+                <a href="https://app.dervis.be" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-acid-green text-black px-8 py-4 font-label-caps text-label-caps uppercase rounded hover:shadow-[0_0_25px_rgba(163,230,53,0.7)] hover:scale-105 transition-all duration-300">
+                    <span class="material-symbols-outlined text-lg">public</span>
+                    VIEW LIVE APP (app.dervis.be)
+                </a>
+            </div>
+            <div class="col-span-1 md:col-span-4 flex items-end justify-start md:justify-end mt-12 md:mt-0">
+                <div class="glass-panel p-6 rounded-xl border border-white/10 relative w-full">
+                    <div class="font-label-caps text-label-caps text-xs text-on-surface-variant mb-4">PROJECT METADATA</div>
+                    <ul class="font-code-sm text-code-sm text-on-background space-y-3">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-acid-green rounded-sm shadow-[0_0_8px_#a3e635]"></span> ROLE: Solo Creator</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-neon-cyan rounded-sm shadow-[0_0_8px_#0ff]"></span> HOSTING: Oracle Cloud ARM64</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-primary rounded-sm shadow-[0_0_8px_#cfbcff]"></span> SCOPE: App, infra and CI/CD</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-tertiary rounded-sm shadow-[0_0_8px_#e7c365]"></span> STATUS: In production</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Headline numbers -->
+    <section class="mb-section-gap">
+        <div class="font-label-caps text-label-caps text-acid-green mb-8">MEASURED RESULTS</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="glass-panel p-6 rounded-xl border-l-2 border-acid-green">
+                <div class="font-display-lg text-[44px] leading-none text-white mb-3">552<span class="text-headline-md text-on-surface-variant"> KB</span></div>
+                <p class="font-body-md text-on-surface-variant text-sm">Cut from every single page load, after bundle inspection found Sentry Session Replay sitting in the root layout.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl border-l-2 border-neon-cyan">
+                <div class="font-display-lg text-[44px] leading-none text-white mb-3">12 <span class="text-headline-md text-on-surface-variant">to</span> 1</div>
+                <p class="font-body-md text-on-surface-variant text-sm">Supabase auth round trips per render, collapsed with React cache memoisation. Each one cost about 65 ms.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl border-l-2 border-primary">
+                <div class="font-display-lg text-[44px] leading-none text-white mb-3">4</div>
+                <p class="font-body-md text-on-surface-variant text-sm">Independent authentication layers in front of the data, with Postgres Row Level Security as the final backstop.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl border-l-2 border-tertiary">
+                <div class="font-display-lg text-[44px] leading-none text-white mb-3">10</div>
+                <p class="font-body-md text-on-surface-variant text-sm">Zod typed tools the voice assistant can call. Every database write goes through one of them, never through free text.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Technology stack -->
+    <section class="mb-section-gap relative">
+        <div class="font-label-caps text-label-caps text-primary mb-6">TECHNOLOGY STACK &amp; ARCHITECTURE</div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-neon-cyan mb-4 border-b border-white/10 pb-2">FRONTEND</h3>
+                <p class="font-body-md text-on-surface-variant">Next.js 16 App Router, React 19, TypeScript in strict mode, Tailwind CSS v4, Zustand, Recharts, Zod, react-grid-layout</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-acid-green mb-4 border-b border-white/10 pb-2">BACKEND &amp; DATA</h3>
+                <p class="font-body-md text-on-surface-variant">Supabase Postgres with Row Level Security on every table, Supabase Auth over cookies, Next.js Server Actions, Web Push with VAPID</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-primary mb-4 border-b border-white/10 pb-2">AI</h3>
+                <p class="font-body-md text-on-surface-variant">Vercel AI SDK v6, Claude Haiku 4.5 for intent extraction with an ordered model fallback chain, Groq whisper-large-v3 for speech</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="font-code-sm text-code-sm text-tertiary mb-4 border-b border-white/10 pb-2">INFRASTRUCTURE</h3>
+                <p class="font-body-md text-on-surface-variant">Docker Compose, nginx with Let's Encrypt TLS, Oracle Cloud Ampere ARM64, GitHub Actions, Sentry</p>
+            </div>
+        </div>
+
+        <!-- System topology -->
+        <div class="glass-panel rounded-xl p-6 md:p-8 relative w-full max-w-7xl mx-auto">
+            <h3 class="font-label-caps text-label-caps text-acid-green mb-2">SYSTEM TOPOLOGY</h3>
+            <p class="font-body-md text-on-surface-variant text-sm mb-8 max-w-3xl">Everything inside the dashed frame runs on one Oracle Cloud VM that I provisioned and operate. The application container is bound to localhost, so nginx is the only way in from the internet.</p>
+
+            <div class="flex justify-start xl:justify-center pb-8 w-full overflow-x-auto">
+                <div class="min-w-[1080px] w-full">
+                    <svg viewBox="0 0 1400 680" style="overflow: visible;" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="cairn-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="rgba(0,255,255,0.2)" />
+                                <stop offset="100%" stop-color="rgba(0,255,255,0.8)" />
+                            </linearGradient>
+                            <linearGradient id="cairn-green" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="rgba(163,230,53,0.2)" />
+                                <stop offset="100%" stop-color="rgba(163,230,53,0.8)" />
+                            </linearGradient>
+                            <linearGradient id="cairn-purple" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="rgba(207,188,255,0.2)" />
+                                <stop offset="100%" stop-color="rgba(207,188,255,0.8)" />
+                            </linearGradient>
+                            <linearGradient id="cairn-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="rgba(231,195,101,0.2)" />
+                                <stop offset="100%" stop-color="rgba(231,195,101,0.8)" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Boundary: the machine I run -->
+                        <rect x="300" y="30" width="600" height="505" rx="8" fill="none" stroke="#948e9c" stroke-width="1" stroke-dasharray="5 5" opacity="0.4" />
+                        <text x="316" y="52" fill="#948e9c" font-family="monospace" font-size="11">ORACLE CLOUD VM  /  Ampere ARM64  /  Ubuntu</text>
+
+                        <!-- Boundary: docker compose -->
+                        <rect x="590" y="72" width="290" height="330" rx="6" fill="none" stroke="#0ff" stroke-width="1" stroke-dasharray="4 4" opacity="0.35" />
+                        <text x="604" y="92" fill="#0ff" font-family="monospace" font-size="10" opacity="0.9">docker compose</text>
+
+                        <!-- Boundary: managed services -->
+                        <rect x="1040" y="10" width="320" height="545" rx="8" fill="none" stroke="#948e9c" stroke-width="1" stroke-dasharray="5 5" opacity="0.4" />
+                        <text x="1056" y="32" fill="#948e9c" font-family="monospace" font-size="11">MANAGED SERVICES</text>
+
+                        <!-- Client to nginx -->
+                        <path d="M 230 162 L 280 162 L 280 225 L 330 225" fill="none" stroke="url(#cairn-cyan)" stroke-width="2" stroke-dasharray="6" />
+                        <!-- Service worker registration -->
+                        <path d="M 125 280 L 125 204" fill="none" stroke="#948e9c" stroke-width="2" stroke-dasharray="3 4" opacity="0.7" />
+
+                        <!-- nginx to app -->
+                        <path d="M 470 225 L 530 225 L 530 189 L 610 189" fill="none" stroke="url(#cairn-cyan)" stroke-width="2" stroke-dasharray="6" />
+                        <text x="474" y="248" fill="#0ff" font-family="monospace" font-size="10" opacity="0.8">proxy_pass 127.0.0.1:3000</text>
+
+                        <!-- Scheduler sidecar calls the app -->
+                        <path d="M 790 304 L 790 274" fill="none" stroke="url(#cairn-cyan)" stroke-width="2" stroke-dasharray="6" />
+                        <text x="800" y="296" fill="#0ff" font-family="monospace" font-size="10" opacity="0.8">Bearer CRON_SECRET</text>
+
+                        <!-- App to Supabase -->
+                        <path d="M 860 130 L 960 130 L 960 96 L 1060 96" fill="none" stroke="url(#cairn-green)" stroke-width="3" stroke-dasharray="6" />
+                        <!-- App to Anthropic -->
+                        <path d="M 860 165 L 990 165 L 990 202 L 1060 202" fill="none" stroke="url(#cairn-purple)" stroke-width="2" stroke-dasharray="6" />
+                        <!-- App to Groq -->
+                        <path d="M 860 195 L 1015 195 L 1015 300 L 1060 300" fill="none" stroke="url(#cairn-purple)" stroke-width="2" stroke-dasharray="6" />
+                        <!-- App to push services -->
+                        <path d="M 860 225 L 1035 225 L 1035 398 L 1060 398" fill="none" stroke="url(#cairn-gold)" stroke-width="2" stroke-dasharray="6" />
+                        <!-- App to Sentry -->
+                        <path d="M 860 255 L 920 255 L 920 496 L 1060 496" fill="none" stroke="#948e9c" stroke-width="2" stroke-dasharray="6" opacity="0.7" />
+                        <!-- App to encrypted volume -->
+                        <path d="M 680 274 L 680 430" fill="none" stroke="url(#cairn-green)" stroke-width="2" stroke-dasharray="6" />
+
+                        <!-- Push service back to the service worker -->
+                        <path d="M 1060 420 L 1000 420 L 1000 640 L 125 640 L 125 364" fill="none" stroke="url(#cairn-gold)" stroke-width="2" stroke-dasharray="6" />
+                        <text x="620" y="632" fill="#e7c365" font-family="monospace" font-size="10" opacity="0.85">VAPID signed payload, delivered to the service worker</text>
+
+                        <!-- CI/CD into the compose stack -->
+                        <path d="M 560 601 L 585 601 L 585 340 L 610 340" fill="none" stroke="#948e9c" stroke-width="2" stroke-dasharray="6" opacity="0.7" />
+
+                        <!-- Column 1: client -->
+                        <foreignObject x="20" y="120" width="210" height="84" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-outline-variant/30 rounded p-4 flex flex-col justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-neon-cyan text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">install_mobile</span> Installable PWA</div>
+                                <div class="text-[10px] text-on-surface-variant">React 19, Zustand, Recharts</div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="20" y="280" width="210" height="84" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-tertiary/30 rounded p-4 flex flex-col justify-center shadow-[0_0_15px_rgba(231,195,101,0.08)] hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-tertiary text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">notifications_active</span> Service Worker</div>
+                                <div class="text-[10px] text-on-surface-variant">Hand written push handlers</div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- Column 2: nginx -->
+                        <foreignObject x="330" y="150" width="140" height="150" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface/80 backdrop-blur-md border border-white/20 rounded flex flex-col items-center justify-center shadow-[0_0_20px_rgba(0,255,255,0.1)] hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <span class="material-symbols-outlined text-white mb-2">lock</span>
+                                <span class="font-code-sm text-white text-xs">nginx :443</span>
+                                <span class="text-[10px] text-on-surface-variant mt-1">TLS termination</span>
+                                <span class="text-[10px] text-on-surface-variant">Let's Encrypt</span>
+                            </div>
+                        </foreignObject>
+
+                        <!-- Column 3: the app container -->
+                        <foreignObject x="610" y="104" width="250" height="170" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-[#a3e635]/10 border border-acid-green/30 rounded p-4 shadow-[0_0_20px_rgba(163,230,53,0.15)] flex flex-col gap-2 hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-acid-green text-xs flex items-center gap-2 border-b border-acid-green/20 pb-2 mb-1"><span class="material-symbols-outlined text-sm">deployed_code</span> Next.js standalone</div>
+                                <div class="bg-black/50 p-2 rounded border border-white/5 text-[10px] text-white flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">shield_person</span> proxy.ts session refresh</div>
+                                <div class="bg-black/50 p-2 rounded border border-white/5 text-[10px] text-white flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">bolt</span> Server Actions, RLS as user</div>
+                                <div class="bg-black/50 p-2 rounded border border-white/5 text-[10px] text-white flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">mic</span> /api/ai/voice-command</div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="610" y="304" width="250" height="80" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-outline-variant/30 rounded p-4 flex flex-col justify-center hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-neon-cyan text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">schedule</span> Scheduler sidecar</div>
+                                <div class="text-[10px] text-on-surface-variant">Alpine + curl, dispatch every 600s</div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="610" y="430" width="250" height="76" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-acid-green/30 rounded p-4 flex flex-col justify-center shadow-[0_0_15px_rgba(163,230,53,0.08)] hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-acid-green text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">folder_managed</span> Bind mounted volume</div>
+                                <div class="text-[10px] text-on-surface-variant">AES-256-GCM ciphertext only</div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- Column 4: managed services -->
+                        <foreignObject x="1060" y="48" width="280" height="96" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-acid-green/30 rounded p-4 shadow-[0_0_15px_rgba(163,230,53,0.1)] flex flex-col gap-2 hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-acid-green text-xs flex items-center gap-2 border-b border-acid-green/20 pb-2 mb-1"><span class="material-symbols-outlined text-sm">database</span> Supabase Postgres</div>
+                                <div class="text-[10px] text-white flex items-center gap-2"><span class="material-symbols-outlined text-[12px] text-on-surface-variant">policy</span> Row Level Security on every table</div>
+                                <div class="text-[10px] text-white flex items-center gap-2"><span class="material-symbols-outlined text-[12px] text-on-surface-variant">key</span> Cookie based auth</div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1060" y="164" width="280" height="76" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-primary/30 rounded p-4 flex flex-col justify-center hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-primary text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">smart_toy</span> Anthropic Claude</div>
+                                <div class="text-[10px] text-on-surface-variant">Haiku 4.5, intent extraction only</div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1060" y="262" width="280" height="76" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-primary/30 rounded p-4 flex flex-col justify-center hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-primary text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">graphic_eq</span> Groq Whisper</div>
+                                <div class="text-[10px] text-on-surface-variant">whisper-large-v3, chosen for latency</div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1060" y="360" width="280" height="76" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-tertiary/30 rounded p-4 flex flex-col justify-center shadow-[0_0_15px_rgba(231,195,101,0.08)] hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-tertiary text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">cloud_sync</span> Push services</div>
+                                <div class="text-[10px] text-on-surface-variant">FCM, APNs, Mozilla</div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1060" y="458" width="280" height="76" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-outline-variant/30 rounded p-4 flex flex-col justify-center hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-outline text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">monitoring</span> Sentry</div>
+                                <div class="text-[10px] text-on-surface-variant">Errors, 10% trace sampling in prod</div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- CI/CD -->
+                        <foreignObject x="310" y="570" width="250" height="62" overflow="visible">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="h-full w-full bg-surface border border-outline-variant/30 rounded p-4 flex flex-col justify-center hover:scale-[1.03] hover:ring-2 hover:ring-white/40 transition-all duration-300 cursor-default hover:shadow-2xl relative z-0 hover:z-50">
+                                <div class="font-code-sm text-white text-xs flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-sm">rocket_launch</span> GitHub Actions</div>
+                                <div class="text-[10px] text-on-surface-variant">types, lint, build, then SSH deploy</div>
+                            </div>
+                        </foreignObject>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="mt-4 border-t border-white/10 pt-4 font-code-sm text-[11px] text-on-surface-variant flex flex-wrap gap-6">
+                <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-neon-cyan"></span> HTTPS and reverse proxy</div>
+                <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-acid-green"></span> Postgres and encrypted storage</div>
+                <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-primary"></span> AI APIs</div>
+                <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-tertiary"></span> Web Push</div>
+                <div class="flex items-center gap-2"><span class="w-3 border-t-2 border-dashed border-outline"></span> Deploy and monitoring</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice pipeline -->
+    <section class="mb-section-gap">
+        <div class="font-label-caps text-label-caps text-primary mb-6">FROM A SPOKEN SENTENCE TO DATABASE ROWS</div>
+        <div class="glass-panel rounded-xl p-6 md:p-8">
+            <div class="terminal-block p-4 rounded border border-outline-variant/30 mb-8 overflow-x-auto">
+                <div class="flex gap-2 mb-3 items-center border-b border-outline-variant/30 pb-2">
+                    <div class="w-2 h-2 rounded-full bg-error"></div>
+                    <div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                    <div class="w-2 h-2 rounded-full bg-acid-green"></div>
+                    <span class="ml-2 font-code-sm text-code-sm text-outline text-[10px]">one sentence, three writes</span>
+                </div>
+                <code class="font-code-sm text-code-sm text-xs leading-6 block whitespace-pre">
+<span class="text-neon-cyan">spoken  </span> "ik heb 1 kilo rijst, 2 kilo kip en 3 kilo broccoli gegeten"
+<span class="text-primary">claude  </span> 3 separate logFood tool calls, each Zod validated
+<span class="text-acid-green">written </span> 3 rows in food_logs, matched against the food database</code>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-surface/60 border border-outline-variant/30 rounded p-4">
+                    <div class="font-code-sm text-[10px] text-outline mb-2">01</div>
+                    <div class="font-code-sm text-xs text-neon-cyan mb-1">Record</div>
+                    <p class="text-[11px] text-on-surface-variant">Hold to talk, MediaRecorder captures audio</p>
+                </div>
+                <div class="bg-surface/60 border border-outline-variant/30 rounded p-4">
+                    <div class="font-code-sm text-[10px] text-outline mb-2">02</div>
+                    <div class="font-code-sm text-xs text-primary mb-1">Transcribe</div>
+                    <p class="text-[11px] text-on-surface-variant">Groq Whisper, seeded with Dutch food words</p>
+                </div>
+                <div class="bg-surface/60 border border-outline-variant/30 rounded p-4">
+                    <div class="font-code-sm text-[10px] text-outline mb-2">03</div>
+                    <div class="font-code-sm text-xs text-primary mb-1">Extract</div>
+                    <p class="text-[11px] text-on-surface-variant">Claude picks tools, never writes free text</p>
+                </div>
+                <div class="bg-surface/60 border border-outline-variant/30 rounded p-4">
+                    <div class="font-code-sm text-[10px] text-outline mb-2">04</div>
+                    <div class="font-code-sm text-xs text-tertiary mb-1">Normalise</div>
+                    <p class="text-[11px] text-on-surface-variant">Units, meal type and dates fixed in code</p>
+                </div>
+                <div class="bg-surface/60 border border-outline-variant/30 rounded p-4">
+                    <div class="font-code-sm text-[10px] text-outline mb-2">05</div>
+                    <div class="font-code-sm text-xs text-tertiary mb-1">Match</div>
+                    <p class="text-[11px] text-on-surface-variant">A real database row beats the AI estimate</p>
+                </div>
+                <div class="bg-surface/60 border border-acid-green/40 rounded p-4">
+                    <div class="font-code-sm text-[10px] text-outline mb-2">06</div>
+                    <div class="font-code-sm text-xs text-acid-green mb-1">Write</div>
+                    <p class="text-[11px] text-on-surface-variant">Server actions commit to Postgres</p>
+                </div>
+            </div>
+
+            <p class="font-body-md text-on-surface-variant text-sm mt-8 max-w-4xl">
+                Whisper only transcribes and Claude only extracts structure. Nothing the model produces reaches the database as free text. Every write is a typed tool call with a Zod input schema, normalised a second time in application code, so the model is treated as an untrusted input source rather than a source of truth.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core engineering features -->
+    <section class="mb-section-gap">
+        <div class="font-label-caps text-label-caps text-acid-green mb-8">ENGINEERING DECISIONS WORTH A LOOK</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-primary">rule_settings</span>
+                    <h3 class="font-headline-md text-lg text-white">The validation boundary</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">Ten tools, each with a Zod input schema. Enums and units are re-normalised in application code afterwards, because a model that returns a plausible but invalid meal type should never be able to corrupt a row.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-acid-green">search_check</span>
+                    <h3 class="font-headline-md text-lg text-white">Deterministic beats generative</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">A tiered scoring matcher resolves a spoken food name to a real database row before the model's calorie guess is used. A 157 entry Dutch to English synonym table runs first, because as a fallback it matched dish names instead of ingredients.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-neon-cyan">shield_lock</span>
+                    <h3 class="font-headline-md text-lg text-white">Four layers, then RLS</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">A proxy redirect, an authoritative check in the layout, a re-check inside every server action, and Row Level Security in Postgres. The first three can all have bugs and still not leak another user's rows.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-tertiary">translate</span>
+                    <h3 class="font-headline-md text-lg text-white">Bilingual at every layer</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">Dutch lives in the transcription prompt, the synonym table, the unit parser (pond, ons, and "1,5 kg" written with a comma) and the enum normaliser. It is a first class input language, not a translation pass.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-primary">notifications_paused</span>
+                    <h3 class="font-headline-md text-lg text-white">Reminders that check first</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">The dispatcher reads your data before sending, so a day you already logged produces nothing. Times are stored as local wall clock plus timezone, so 19:00 stays 19:00 through daylight saving and travel.</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-acid-green">dashboard_customize</span>
+                    <h3 class="font-headline-md text-lg text-white">A typed widget registry</h3>
+                </div>
+                <p class="font-body-md text-on-surface-variant text-sm">Each of the 12 dashboard widgets declares its data needs once. The fetcher de-duplicates them across whatever is on screen and resolves them in a single batch, and the widget's data type is derived from that map. Adding a widget is two lines with no new queries.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="mb-section-gap relative md:tech-gutter md:pl-12">
+        <h2 class="font-headline-md text-headline-md text-on-background mb-4">Performance was measured, not guessed</h2>
+        <p class="font-body-md text-on-surface-variant max-w-3xl mb-8">The biggest win was invisible to route level analysis and only turned up through bundle inspection.</p>
+        <div class="space-y-8">
+            <div>
+                <h4 class="font-code-sm text-acid-green mb-2">01 // 552 KB OF SESSION REPLAY</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">Sentry Session Replay was loading in the root layout, so it shipped on every page and recorded DOM mutations during scroll. Removing it and cutting trace sampling to 10% in production took that weight off the whole app.</p>
+            </div>
+            <div>
+                <h4 class="font-code-sm text-neon-cyan mb-2">02 // 12 AUTH ROUND TRIPS PER RENDER</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">The auth helper was called 12 times in a single render pass, each one a Supabase round trip of about 65 ms. Wrapping it in React cache collapsed all 12 into one.</p>
+            </div>
+            <div>
+                <h4 class="font-code-sm text-primary mb-2">03 // AN AUTH CHECK ON EVERY PREFETCHED LINK</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">The bottom navigation puts every route in the viewport at once, and Next.js prefetches all of them, so each page view triggered a round trip per link. The proxy now skips the check for prefetches, deliberately scoped to exclude API routes, because that header is client supplied and honouring it on the voice endpoint would let an anonymous caller spend AI credits.</p>
+            </div>
+            <div>
+                <h4 class="font-code-sm text-tertiary mb-2">04 // CHARTS THAT FROZE AT ZERO</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">Recharts animates on mount with requestAnimationFrame. On a backgrounded tab or a low power device that gets throttled, so bars stayed at zero height and the chart looked broken. Reproduced with a plain Recharts control case, then fixed by turning mount animation off.</p>
+            </div>
+            <div>
+                <h4 class="font-code-sm text-outline mb-2">05 // ONE OPTIMISATION LEFT UNDONE</h4>
+                <p class="font-body-md text-on-surface-variant max-w-3xl">The backdrop blur on the fixed navigation bars is a plausible GPU cost, but frame timing could not be measured in the available environment. Changing it would have been a guess dressed up as an optimisation, so it was left alone and recorded as such.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honest security note -->
+    <section class="mb-section-gap">
+        <div class="glass-panel rounded-xl p-6 md:p-10 border-l-2 border-neon-cyan">
+            <div class="font-label-caps text-label-caps text-neon-cyan mb-4">ON THE ENCRYPTION CLAIM</div>
+            <h2 class="font-headline-md text-headline-md text-on-background mb-6">Saying exactly what it does and does not protect</h2>
+            <p class="font-body-md text-on-surface-variant max-w-4xl mb-4">
+                Progress photos are encrypted in the browser with AES-256-GCM before upload, so the server only ever stores ciphertext. That protects against a stolen backup or a leaked volume.
+            </p>
+            <p class="font-body-md text-on-surface-variant max-w-4xl mb-4">
+                It is not zero knowledge, and the code says so. The key is derived from the account id, which is not a secret, so the server operator could derive it. Claiming otherwise would be the easy thing to write and the wrong thing to ship.
+            </p>
+            <p class="font-body-md text-on-surface-variant max-w-4xl">
+                Because of that, access control is enforced separately. Every read is confined to the caller's own directory using a resolved path check rather than string comparison, and anything outside it returns 404 instead of 403, so the endpoint never confirms whether another user's file exists. Verified against a 17 case traversal suite.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mb-section-gap text-center">
+        <div class="glass-panel p-12 rounded-xl inline-block relative overflow-hidden">
+            <h2 class="font-headline-md text-white mb-4">See it running</h2>
+            <p class="font-body-md text-on-surface-variant mb-8 max-w-lg mx-auto">Cairn is live and installable. Add it to your home screen and it behaves like a native app, including push reminders.</p>
+            <a href="https://app.dervis.be" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-acid-green text-black px-8 py-4 font-label-caps text-label-caps uppercase rounded hover:shadow-[0_0_20px_rgba(163,230,53,0.6)] transition-all">
+                OPEN app.dervis.be
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant/30 full-width relative grid grid-cols-12 gap-4 px-grid-margin py-4 md:py-6 w-full items-center text-primary">
+<div class="col-span-12 md:col-span-6 font-label-caps text-label-caps text-xs text-on-surface-variant uppercase">
+            ©2026 Dervis Acar. All rights reserved.
+        </div>
+<div class="col-span-12 md:col-span-6 flex gap-6 justify-start md:justify-end font-label-caps text-label-caps text-xs">
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="https://github.com/Dervis-Acar" target="_blank">GITHUB</a>
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="https://www.linkedin.com/in/dervis-acar" target="_blank">LINKEDIN</a>
+<a class="text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary duration-300" href="mailto:acar@dervis.be">EMAIL</a>
+</div>
+</footer>
+
+<script src="assets/js/mobile-menu.js?v=5966b4758d"></script>
+</body></html>
