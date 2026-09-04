@@ -1,14 +1,11 @@
 name: Deploy to Oracle server
 
-# Pull-based deploy, matching the PlannerPWA setup: appleboy/ssh-action
-# connects with three secrets, then the server syncs itself from GitHub.
+# Pull-based deploy: appleboy/ssh-action connects with three secrets and the
+# server syncs itself from GitHub.
 #
 #   ORACLE_HOST      server IP or hostname
 #   ORACLE_USER      ssh user (e.g. ubuntu)
 #   ORACLE_SSH_KEY   the deploy private key, whole file including BEGIN/END
-#
-# The repo is public, so the server fetches anonymously - no GITHUB_TOKEN is
-# written into .git/config on disk.
 
 on:
   push:
@@ -24,8 +21,8 @@ concurrency:
 
 jobs:
   # The server deploys whatever is committed, so the committed stylesheet has
-  # to match its source. Without this guard, editing src/site.css and
-  # forgetting `npm run build:css` would silently ship the previous styles.
+  # to match its source. Without this, editing src/site.css and forgetting
+  # `npm run build:css` would silently ship the previous styles.
   verify-build:
     name: Verify committed CSS is up to date
     runs-on: ubuntu-latest
@@ -42,8 +39,8 @@ jobs:
       - name: Rebuild and compare against what is committed
         run: |
           npm run build:css
-          # Scope the comparison to the build's outputs: the compiled
-          # stylesheet and the hash stamps it writes into each page.
+          # Scoped to the build's outputs: the compiled stylesheet and the
+          # hash stamps it writes into each page.
           if ! git diff --quiet -- assets/css/site.css ./*.html; then
             echo "::error::assets/css/site.css is out of date. Run 'npm run build:css' and commit the result."
             git --no-pager diff --stat -- assets/css/site.css ./*.html
@@ -67,6 +64,9 @@ jobs:
             set -eu
             cd /var/www/dervis.be
 
+            # The repo is public, so fetch anonymously. The x-access-token
+            # form writes the token into .git/config on disk; nothing here
+            # needs it.
             if [ ! -d .git ]; then
               git init -b master
               git remote add origin https://github.com/Dervis-Acar/Portfolio_2026.git
@@ -77,8 +77,36 @@ jobs:
             git reset --hard origin/master
 
             # reset --hard only touches tracked files. Without this, anything
-            # left behind by an earlier deploy - including the old styles.css
-            # and tailwind-config.js - lingers in the web root forever.
+            # an earlier deploy left behind - including the old styles.css and
+            # tailwind-config.js - lingers in the web root forever.
             git clean -fd
 
-            echo "deployed $(git rev-parse --short HEAD) to $(pwd)"
+            echo "Successfully deployed commit $(git rev-parse --short HEAD) to /var/www/dervis.be"
+
+      - name: Smoke test live site
+        run: |
+          echo "Verifying pages on https://dervis.be..."
+          for page in "" projects.html experience.html stack.html contact.html \
+                      project-rag.html project-queens-app.html case-study-rag.html; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://dervis.be/$page")
+            echo "$code https://dervis.be/$page"
+            [ "$code" = "200" ] || { echo "::error::https://dervis.be/$page returned $code"; exit 1; }
+          done
+
+          # The stylesheet is what broke before: confirm the exact hashed URL
+          # the live homepage asks for actually resolves.
+          css=$(curl -s --max-time 20 https://dervis.be/ | grep -o 'assets/css/site\.css?v=[a-f0-9]*' | head -1)
+          [ -n "$css" ] || { echo "::error::homepage references no stylesheet"; exit 1; }
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://dervis.be/$css")
+          echo "$code https://dervis.be/$css"
+          [ "$code" = "200" ] || { echo "::error::stylesheet $css returned $code"; exit 1; }
+
+          # .git under the web root would expose the repo over HTTP.
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 https://dervis.be/.git/config)
+          echo "$code https://dervis.be/.git/config  (expect 403 or 404)"
+          case "$code" in
+            403|404) ;;
+            *) echo "::error::.git is reachable over HTTP (got $code). Add the nginx deny rule."; exit 1 ;;
+          esac
+
+          echo "All checks passed."
