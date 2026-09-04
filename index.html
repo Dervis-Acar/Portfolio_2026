@@ -9,7 +9,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/site.css?v=c5b6777c34"/>
+<link rel="stylesheet" href="assets/css/site.css?v=f4666d967b"/>
 
 <link rel="icon" type="image/png" href="assets/Images/favicon.png" />
 </head>
@@ -75,6 +75,85 @@
 </div>
 </div>
 </div>
+</section>
+
+<!-- Selected Work -->
+<section class="px-mobile-margin md:px-grid-margin py-section-gap border-t border-outline-variant/30">
+
+<div class="grid grid-cols-12 gap-4 mb-12">
+<div class="col-span-12 md:col-span-8">
+<div class="flex items-center gap-3 mb-5">
+<span class="w-2 h-2 bg-[#00ffff] block"></span>
+<span class="font-label-caps text-label-caps text-[#00ffff] tracking-[0.2em]">SELECTED WORK</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">THREE SYSTEMS<br/>I DESIGNED AND BUILT</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Two of them are live in production on infrastructure I provisioned and maintain myself, from the TLS certificate to the deploy pipeline.</p>
+</div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+<a href="project-rag.html" class="glass-panel rounded-[4px] p-6 block group hover:border-[#00ffff]/50 transition-colors">
+<div class="flex items-start justify-between mb-5">
+<span class="px-2 py-1 bg-[#00ffff]/10 border border-[#00ffff]/40 rounded text-[#00ffff] font-code-sm text-code-sm text-[10px]">AI PLATFORM</span>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-[#00ffff] transition-colors">arrow_outward</span>
+</div>
+<h3 class="font-headline-md text-2xl text-white mb-3 group-hover:text-[#00ffff] transition-colors">RAG System</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A multi tenant knowledge platform. Upload your documents, ask a question, get an answer that cites your own files.</p>
+<ul class="space-y-3">
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#0ff]"></span><span><span class="text-white">GDPR compliant by design.</span> Personal data is detected and masked before anything is processed.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#0ff]"></span><span><span class="text-white">Strict tenant isolation.</span> Every document, chunk and chat is scoped to one workspace.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#0ff]"></span><span><span class="text-white">Answers you can check,</span> streamed live and grounded only in your own documents.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-[#00ffff] rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#0ff]"></span><span><span class="text-white">Malware scanning and rate limits</span> on every upload.</span></li>
+</ul>
+</a>
+
+<a href="project-cairn.html" class="glass-panel rounded-[4px] p-6 block group hover:border-acid-green/50 transition-colors">
+<div class="flex items-start justify-between mb-5">
+<span class="px-2 py-1 bg-acid-green/10 border border-acid-green/40 rounded text-acid-green font-code-sm text-code-sm text-[10px]">PRODUCTION PWA</span>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-acid-green transition-colors">arrow_outward</span>
+</div>
+<h3 class="font-headline-md text-2xl text-white mb-3 group-hover:text-acid-green transition-colors">Cairn</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">An installable app that runs a whole day: tasks, focus sessions, nutrition and startup idea validation.</p>
+<ul class="space-y-3">
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-acid-green rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#a3e635]"></span><span><span class="text-white">Agentic AI voice assistant.</span> Say a sentence and it becomes validated database writes, never free text.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-acid-green rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#a3e635]"></span><span><span class="text-white">Docker and nginx on Oracle Cloud Ubuntu,</span> running on ARM64 with TLS I set up myself.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-acid-green rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#a3e635]"></span><span><span class="text-white">A CI/CD pipeline that refuses to ship</span> if types, linting or the build fail.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-acid-green rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#a3e635]"></span><span><span class="text-white">Bilingual in Dutch and English</span> at every layer, not bolted on as translation.</span></li>
+</ul>
+</a>
+
+<a href="project-queens-app.html" class="glass-panel rounded-[4px] p-6 block group hover:border-tertiary/50 transition-colors">
+<div class="flex items-start justify-between mb-5">
+<span class="px-2 py-1 bg-tertiary/10 border border-tertiary/40 rounded text-tertiary font-code-sm text-code-sm text-[10px]">ANDROID</span>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-tertiary transition-colors">arrow_outward</span>
+</div>
+<h3 class="font-headline-md text-2xl text-white mb-3 group-hover:text-tertiary transition-colors">Queens Puzzle App</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A premium puzzle game whose generator proves that every board it creates has exactly one solution.</p>
+<ul class="space-y-3">
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#e7c365]"></span><span><span class="text-white">A backtracking solver</span> paired with a deduction engine that reasons the way a player does.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#e7c365]"></span><span><span class="text-white">Clean Architecture</span> across five separate Gradle modules.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#e7c365]"></span><span><span class="text-white">Kotlin and Jetpack Compose,</span> MVVM built on StateFlows.</span></li>
+<li class="flex gap-3 font-body-md text-sm text-on-surface-variant"><span class="w-1.5 h-1.5 bg-tertiary rounded-sm shrink-0 mt-[7px] shadow-[0_0_6px_#e7c365]"></span><span><span class="text-white">OAuth 2.0 sign in</span> against a C# ASP.NET Core backend.</span></li>
+</ul>
+</a>
+
+</div>
+
+<div class="mt-12 pt-8 border-t border-outline-variant/30">
+<div class="font-label-caps text-label-caps text-xs text-on-surface-variant mb-5">WHAT THESE PROJECTS DEMONSTRATE</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">GDPR and PII anonymisation</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Retrieval Augmented Generation</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Agentic AI tool calling</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Multi tenant architecture</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">PostgreSQL and pgvector</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Row Level Security</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Docker and Docker Compose</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">nginx and TLS</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Oracle Cloud Ubuntu</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">CI/CD with GitHub Actions</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">.NET 8 and C#</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Vue 3 and Next.js</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Kotlin and Jetpack Compose</span><span class="px-3 py-1.5 bg-surface/60 border border-outline-variant/40 rounded font-code-sm text-code-sm text-[11px] text-on-surface-variant hover:border-[#00ffff]/50 hover:text-white transition-colors">Clean Architecture</span>
+</div>
+</div>
+
+<div class="mt-12 flex justify-center">
+<a href="projects.html" class="group inline-flex items-center gap-3 px-8 py-4 glass-panel rounded-[4px] text-on-surface font-label-caps text-label-caps hover:border-[#00ffff]/50 hover:text-[#00ffff] transition-all duration-300">
+            DISCOVER MORE
+            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+
 </section>
 
 <!-- About & Education Section -->
