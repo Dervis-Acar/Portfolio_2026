@@ -1,0 +1,10 @@
+# Keep LF everywhere. The asset cache-busting hashes in tools/stamp-assets.mjs
+# are computed over file bytes, so CRLF on one machine and LF on the CI runner
+# would produce different hashes for identical content.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.woff2 binary

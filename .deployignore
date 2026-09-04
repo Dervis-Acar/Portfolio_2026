@@ -1,8 +1,23 @@
-# Paths rsync must never publish to the web root.
+# Never publish these to the web root.
+
+# VCS / CI / editor
 .git/
 .github/
 .gitignore
 .deployignore
 .claude/
 .vs/
+.diag/
+.playwright-mcp/
+
+# Build tooling - the site ships the compiled assets/css/site.css only
+node_modules/
+src/
+tools/
+package.json
+package-lock.json
+tailwind.config.js
+postcss.config.js
+
+# Internal notes
 assets/Architecture_Topology.md

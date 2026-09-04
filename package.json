@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dervis Acar - portfolio site",
+  "scripts": {
+    "build:css": "postcss src/site.css -o assets/css/site.css && node tools/stamp-assets.mjs",
+    "watch:css": "postcss src/site.css -o assets/css/site.css --watch",
+    "verify": "node tools/stamp-assets.mjs --check"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.9",
+    "autoprefixer": "^10.5.5",
+    "cssnano": "^7.1.9",
+    "postcss": "^8.5.28",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

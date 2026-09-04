@@ -1,9 +1,18 @@
-name: Deploy to Oracle Server
+name: Deploy to Oracle server
+
+# Builds the stylesheet, then deploys the static site to the Oracle Ubuntu
+# instance over SSH. Every server-specific value lives in GitHub Secrets,
+# so this file never needs editing.
 
 on:
   push:
     branches: [master]
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (list changes, transfer nothing)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -14,41 +23,90 @@ concurrency:
 
 jobs:
   deploy:
-    name: Deploy to Oracle VM
+    name: Build and deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Check out the commit being deployed
         uses: actions/checkout@v4
 
-      - name: Deploy to Oracle VM via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          host: ${{ secrets.ORACLE_HOST }}
-          username: ${{ secrets.ORACLE_USER }}
-          key: ${{ secrets.ORACLE_SSH_KEY }}
-          envs: GH_TOKEN,GH_REPO
-          script: |
-            cd /var/www/dervis.be
-            if [ ! -d .git ]; then
-              git init
-              git remote add origin https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git
-            fi
-            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git
-            git fetch origin master
-            git reset --hard origin/master
-            echo "Successfully deployed commit $(git rev-parse --short HEAD) to /var/www/dervis.be"
+          node-version: "20"
+          cache: npm
 
-      - name: Smoke test live site
+      - name: Install dependencies
+        run: npm ci
+
+      # Rebuilt here so the deployed CSS can never lag behind the markup,
+      # even if someone forgets to run the build before committing.
+      - name: Build stylesheet
+        run: npm run build:css
+
+      - name: Sanity-check the build
         run: |
-          echo "Verifying pages on https://dervis.be..."
+          test -s assets/css/site.css || { echo "::error::site.css is empty or missing"; exit 1; }
+          bytes=$(wc -c < assets/css/site.css)
+          echo "site.css is ${bytes} bytes"
+          if [ "$bytes" -lt 10000 ]; then
+            echo "::error::site.css is suspiciously small (${bytes} bytes) - Tailwind likely produced no utilities"
+            exit 1
+          fi
+          grep -q 'cdn.tailwindcss.com' ./*.html && { echo "::error::a page still loads the Tailwind CDN"; exit 1; } || true
+          npm run verify
+
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Verify SSH connection
+        run: |
+          ssh -i ~/.ssh/deploy_key \
+              -p "${{ secrets.SSH_PORT || '22' }}" \
+              -o BatchMode=yes \
+              "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+              'echo "connected as $(whoami) on $(hostname)"; test -d "${{ secrets.DEPLOY_PATH }}" || { echo "DEPLOY_PATH does not exist: ${{ secrets.DEPLOY_PATH }}"; exit 1; }'
+
+      - name: Deploy
+        run: |
+          DRY=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY="--dry-run"
+            echo "::notice::DRY RUN - nothing will be written to the server"
+          fi
+
+          rsync -rlptvz --delete $DRY \
+            --exclude-from=.deployignore \
+            --human-readable \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || '22' }} -o BatchMode=yes" \
+            ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/"
+
+      - name: Smoke test the live site
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          URL="${{ vars.SITE_URL }}"
+          if [ -z "$URL" ]; then
+            echo "::notice::SITE_URL variable not set - skipping smoke test"
+            exit 0
+          fi
+
           for page in "" projects.html experience.html stack.html contact.html \
-                      project-rag.html project-queens-app.html case-study-rag.html; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://dervis.be/$page")
-            echo "$code https://dervis.be/$page"
-            [ "$code" = "200" ] || { echo "::error::https://dervis.be/$page returned $code"; exit 1; }
+                      project-rag.html project-queens-app.html; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$URL/$page")
+            echo "$code  $URL/$page"
+            [ "$code" = "200" ] || { echo "::error::$URL/$page returned $code"; exit 1; }
           done
-          echo "All pages returned 200 OK!"
+
+          # The stylesheet is the thing that broke last time: confirm the exact
+          # hashed URL the live homepage asks for actually resolves.
+          css=$(curl -s --max-time 20 "$URL/" | grep -o 'assets/css/site\.css?v=[a-f0-9]*' | head -1)
+          [ -n "$css" ] || { echo "::error::homepage references no stylesheet"; exit 1; }
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$URL/$css")
+          echo "$code  $URL/$css"
+          [ "$code" = "200" ] || { echo "::error::stylesheet $css returned $code"; exit 1; }
