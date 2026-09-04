@@ -1,130 +1,185 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Tech Stack - DERVIS ACAR // DEV</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/site.css?v=65fd67fddb"/>
-<link rel="icon" type="image/png" href="assets/Images/favicon.png"/>
-</head>
-<body data-page="stack" class="flex min-h-screen flex-col bg-ink font-body-md text-body-md text-fg antialiased">
+<link rel="stylesheet" href="assets/css/site.css?v=9a2b9b099f"/>
 
-<!-- Header -->
-<header data-site-header class="fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] border-b border-line bg-ink/85 backdrop-blur-md">
-<div class="wrap flex h-full items-center justify-between gap-6">
-<a href="index.html" class="text-[12px] font-medium uppercase tracking-[0.18em] text-fg transition-colors hover:text-accent">DERVIS ACAR <span class="subtle">// DEV</span></a>
-<nav class="hidden items-center gap-8 md:flex">
-<a class="nav-link" href="projects.html">Projects</a>
-<a class="nav-link" href="experience.html">Experience</a>
-<a class="nav-link" href="stack.html" aria-current="page">Stack</a>
-<a class="nav-link" href="contact.html">Contact</a>
-</nav>
-<div class="flex items-center gap-2">
-<a href="contact.html" class="btn btn-ghost hidden md:inline-flex">Get in touch</a>
-<button data-menu-toggle type="button" aria-expanded="false" aria-label="Open menu" class="-mr-2 flex h-10 w-10 items-center justify-center text-fg-2 transition-colors hover:text-fg md:hidden">
+<link rel="icon" type="image/png" href="assets/Images/favicon.png" />
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-primary selection:text-on-primary font-body-md overflow-x-hidden flex flex-col">
+<!-- Ambient Underglow -->
+<div class="fixed inset-0 pointer-events-none z-[-1]">
+<div class="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-[#00ffff]/5 blur-[150px]"></div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-mobile-margin md:px-grid-margin py-6 bg-surface/60 backdrop-blur-xl border-b border-primary/20 shadow-[0_0_15px_rgba(207,188,255,0.1)]">
+<a href="index.html" class="font-label-caps text-label-caps text-xs tracking-tighter text-primary hover:text-[#00ffff] transition-colors duration-300">
+            DERVIS ACAR // DEV
+        </a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="projects.html">PROJECTS</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="experience.html">EXPERIENCE</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="stack.html">STACK</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="contact.html">CONTACT</a>
+</div>
+<a href="contact.html" class="hidden md:flex bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all flex items-center justify-center">GET IN TOUCH</a>
+<!-- Mobile Menu Icon (Simplified) -->
+<button class="md:hidden text-primary">
 <span class="material-symbols-outlined">menu</span>
 </button>
-</div>
-</div>
-</header>
+</nav>
 
-<main class="flex-1 pt-[var(--nav-h)]">
+<main class="pt-[120px] pb-section-gap px-mobile-margin md:px-grid-margin max-w-[1920px] mx-auto flex-grow w-full">
+    <!-- Header Section -->
+    <header class="mb-12 md:mb-16 relative pt-12 md:pt-16">
+        <div class="w-32 h-1 bg-tertiary opacity-50 mb-2"></div>
+        <div class="font-label-caps text-label-caps text-tertiary mb-8 tracking-[0.2em] uppercase">
+            <span class="opacity-50 mr-2">03 //</span> TECHNICAL_ARSENAL
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative">
+            <div class="col-span-1 md:col-span-8 z-10">
+                <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8 leading-tight">
+                    CORE STACK & <br><span class="text-primary">COMPETENCIES</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    A deep dive into the technologies, frameworks, and infrastructure tools I utilize to engineer scalable, high-performance distributed systems.
+                </p>
+            </div>
+        </div>
+    </header>
 
-<!-- Page header -->
-<section>
-<div class="wrap pb-14 pt-20 md:pb-20 md:pt-28">
-<p class="eyebrow mb-7"><span class="text-fg-3/60">03 //</span> Technical_arsenal</p>
-<h1 class="mb-7 font-display-lg text-display-lg-mobile md:text-display-lg">
-Core stack &amp;<br/><span class="text-fg-2">competencies</span>
-</h1>
-<p class="measure font-body-lg text-body-lg text-fg-2">
-A deep dive into the technologies, frameworks, and infrastructure tools I utilize to engineer scalable, high-performance distributed systems.
-</p>
-</div>
-</section>
+    <!-- Stack Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+        
+        <!-- Frontend -->
+        <div class="glass-panel p-8 rounded-[4px] hover:border-primary/50 transition-colors group">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/30 group-hover:bg-primary/20 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-2xl">desktop_windows</span>
+                </div>
+                <h2 class="font-headline-md text-2xl text-white">Frontend</h2>
+            </div>
+            <ul class="space-y-4">
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Vue.js</span>
+                    <span class="w-2 h-2 bg-primary rounded-sm shadow-[0_0_8px_rgba(207,188,255,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">JavaScript</span>
+                    <span class="w-2 h-2 bg-primary rounded-sm shadow-[0_0_8px_rgba(207,188,255,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">HTML / CSS</span>
+                    <span class="w-2 h-2 bg-primary rounded-sm shadow-[0_0_8px_rgba(207,188,255,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Blazor / Razor</span>
+                    <span class="w-2 h-2 bg-primary rounded-sm shadow-[0_0_8px_rgba(207,188,255,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between pb-3">
+                    <span class="font-code-sm text-on-surface-variant">.NET MAUI</span>
+                    <span class="w-2 h-2 bg-primary rounded-sm shadow-[0_0_8px_rgba(207,188,255,0.8)]"></span>
+                </li>
+            </ul>
+        </div>
 
-<!-- Stack -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-20">
-<div class="grid grid-cols-1 gap-x-16 gap-y-14 md:grid-cols-2">
+        <!-- Backend -->
+        <div class="glass-panel p-8 rounded-[4px] hover:border-tertiary/50 transition-colors group">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/30 group-hover:bg-tertiary/20 transition-colors">
+                    <span class="material-symbols-outlined text-tertiary text-2xl">dns</span>
+                </div>
+                <h2 class="font-headline-md text-2xl text-white">Backend</h2>
+            </div>
+            <ul class="space-y-4">
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">C# / ASP.NET Core</span>
+                    <span class="w-2 h-2 bg-tertiary rounded-sm shadow-[0_0_8px_rgba(231,195,101,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">PostgreSQL / pgvector</span>
+                    <span class="w-2 h-2 bg-tertiary rounded-sm shadow-[0_0_8px_rgba(231,195,101,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Entity Framework Core</span>
+                    <span class="w-2 h-2 bg-tertiary rounded-sm shadow-[0_0_8px_rgba(231,195,101,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between pb-3">
+                    <span class="font-code-sm text-on-surface-variant">REST APIs & Hangfire</span>
+                    <span class="w-2 h-2 bg-tertiary rounded-sm shadow-[0_0_8px_rgba(231,195,101,0.8)]"></span>
+                </li>
+            </ul>
+        </div>
 
-<!-- Frontend -->
-<section>
-<div class="mb-6 flex items-center gap-3 border-b border-line pb-4">
-<span class="material-symbols-outlined text-[20px] text-fg-3">desktop_windows</span>
-<h2 class="font-headline-md text-[19px] leading-6 text-fg">Frontend</h2>
-</div>
-<ul class="font-code-sm text-[13.5px]">
-<li class="border-b border-line py-3.5 text-fg-2"><span>Vue.js</span></li>
-<li class="border-b border-line py-3.5 text-fg-2"><span>JavaScript</span></li>
-<li class="border-b border-line py-3.5 text-fg-2"><span>HTML / CSS</span></li>
-<li class="border-b border-line py-3.5 text-fg-2"><span>Blazor / Razor</span></li>
-<li class="py-3.5 text-fg-2"><span>.NET MAUI</span></li>
-</ul>
-</section>
+        <!-- DevOps & Cloud -->
+        <div class="glass-panel p-8 rounded-[4px] hover:border-error/50 transition-colors group">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center border border-error/30 group-hover:bg-error/20 transition-colors">
+                    <span class="material-symbols-outlined text-error text-2xl">cloud</span>
+                </div>
+                <h2 class="font-headline-md text-2xl text-white">DevOps & Cloud</h2>
+            </div>
+            <ul class="space-y-4">
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Docker</span>
+                    <span class="w-2 h-2 bg-error rounded-sm shadow-[0_0_8px_rgba(255,180,171,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Oracle Cloud</span>
+                    <span class="w-2 h-2 bg-error rounded-sm shadow-[0_0_8px_rgba(255,180,171,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Nginx</span>
+                    <span class="w-2 h-2 bg-error rounded-sm shadow-[0_0_8px_rgba(255,180,171,0.8)]"></span>
+                </li>
+            </ul>
+        </div>
 
-<!-- Backend -->
-<section>
-<div class="mb-6 flex items-center gap-3 border-b border-line pb-4">
-<span class="material-symbols-outlined text-[20px] text-fg-3">dns</span>
-<h2 class="font-headline-md text-[19px] leading-6 text-fg">Backend</h2>
-</div>
-<ul class="font-code-sm text-[13.5px]">
-<li class="border-b border-line py-3.5 text-fg-2"><span>C# / ASP.NET Core</span></li>
-<li class="border-b border-line py-3.5 text-fg-2"><span>PostgreSQL / pgvector</span></li>
-<li class="border-b border-line py-3.5 text-fg-2"><span>Entity Framework Core</span></li>
-<li class="py-3.5 text-fg-2"><span>REST APIs &amp; Hangfire</span></li>
-</ul>
-</section>
-
-<!-- DevOps & Cloud -->
-<section>
-<div class="mb-6 flex items-center gap-3 border-b border-line pb-4">
-<span class="material-symbols-outlined text-[20px] text-fg-3">cloud</span>
-<h2 class="font-headline-md text-[19px] leading-6 text-fg">DevOps &amp; Cloud</h2>
-</div>
-<ul class="font-code-sm text-[13.5px]">
-<li class="border-b border-line py-3.5 text-fg-2"><span>Docker</span></li>
-<li class="border-b border-line py-3.5 text-fg-2"><span>Oracle Cloud</span></li>
-<li class="py-3.5 text-fg-2"><span>Nginx</span></li>
-</ul>
-</section>
-
-<!-- Architecture & AI -->
-<section>
-<div class="mb-6 flex items-center gap-3 border-b border-line pb-4">
-<span class="material-symbols-outlined text-[20px] text-fg-3">memory</span>
-<h2 class="font-headline-md text-[19px] leading-6 text-fg">Architecture &amp; AI</h2>
-</div>
-<ul class="font-code-sm text-[13.5px]">
-<li class="border-b border-line py-3.5 text-fg-2"><span>Retrieval-Augmented Generation (RAG)</span></li>
-<li class="border-b border-line py-3.5 text-fg-2"><span>Claude API Integration</span></li>
-<li class="py-3.5 text-fg-2"><span>Multi-Tenant Architectures</span></li>
-</ul>
-</section>
-
-</div>
-</div>
-</section>
-
+        <!-- System Architecture & AI -->
+        <div class="glass-panel p-8 rounded-[4px] hover:border-[#00ffff]/50 transition-colors group">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-[#00ffff]/10 flex items-center justify-center border border-[#00ffff]/30 group-hover:bg-[#00ffff]/20 transition-colors">
+                    <span class="material-symbols-outlined text-[#00ffff] text-2xl">memory</span>
+                </div>
+                <h2 class="font-headline-md text-2xl text-white">Architecture & AI</h2>
+            </div>
+            <ul class="space-y-4">
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Retrieval-Augmented Generation (RAG)</span>
+                    <span class="w-2 h-2 bg-[#00ffff] rounded-sm shadow-[0_0_8px_rgba(0,255,255,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Claude API Integration</span>
+                    <span class="w-2 h-2 bg-[#00ffff] rounded-sm shadow-[0_0_8px_rgba(0,255,255,0.8)]"></span>
+                </li>
+                <li class="flex items-center justify-between pb-3">
+                    <span class="font-code-sm text-on-surface-variant">Multi-Tenant Architectures</span>
+                    <span class="w-2 h-2 bg-[#00ffff] rounded-sm shadow-[0_0_8px_rgba(0,255,255,0.8)]"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </main>
 
 <!-- Footer -->
-<footer class="mt-auto border-t border-line">
-<div class="wrap flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between">
-<p class="text-[13px] text-fg-3">©2026 Dervis Acar. All rights reserved.</p>
-<nav class="flex flex-wrap gap-7 text-[13px]">
-<a class="link-quiet" href="https://github.com/Dervis-Acar" target="_blank" rel="noopener">GitHub</a>
-<a class="link-quiet" href="https://www.linkedin.com/in/dervis-acar" target="_blank" rel="noopener">LinkedIn</a>
-<a class="link-quiet" href="mailto:acar@dervis.be">Email</a>
-</nav>
+<footer class="bg-surface grid grid-cols-12 gap-4 px-mobile-margin md:px-grid-margin py-4 md:py-6 w-full items-center border-t border-outline-variant/30 flat no shadows mt-auto">
+<div class="col-span-12 md:col-span-6 font-label-caps text-label-caps text-xs text-on-surface-variant">
+            ©2026 Dervis Acar. All rights reserved.
+        </div>
+<div class="col-span-12 md:col-span-6 flex flex-wrap gap-6 md:justify-end">
+<a class="font-label-caps text-label-caps text-xs text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary transition-all duration-300" href="https://github.com/Dervis-Acar" target="_blank">GITHUB</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary transition-all duration-300" href="https://www.linkedin.com/in/dervis-acar" target="_blank">LINKEDIN</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface hover:text-primary hover:skew-x-2 transition-transform hover:text-glow-primary transition-all duration-300" href="mailto:acar@dervis.be">EMAIL</a>
 </div>
 </footer>
 
-<script src="assets/js/mobile-menu.js?v=717742d14d"></script>
-</body>
-</html>
+<script src="assets/js/mobile-menu.js?v=5966b4758d"></script>
+</body></html>

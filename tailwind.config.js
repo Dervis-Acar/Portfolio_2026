@@ -1,4 +1,4 @@
-/** Ported verbatim from the old runtime tailwind-config.js. */
+/** Ported verbatim from the original runtime tailwind-config.js. */
 module.exports = {
   "content": [
     "./*.html",
@@ -8,16 +8,6 @@ module.exports = {
   "theme": {
     "extend": {
       "colors": {
-        "ink": "#0a0a0b",
-        "ink-2": "#0f0f11",
-        "ink-3": "#141417",
-        "line": "#222226",
-        "line-2": "#2c2c32",
-        "fg": "#ececee",
-        "fg-2": "#a0a0a8",
-        "fg-3": "#6c6c74",
-        "accent": "#8da9ce",
-        "accent-dim": "#5c728e",
         "secondary-fixed-dim": "#cdc0e9",
         "on-tertiary-fixed": "#241a00",
         "on-tertiary": "#3e2e00",
@@ -35,7 +25,7 @@ module.exports = {
         "on-primary-fixed-variant": "#4f378a",
         "on-primary-fixed": "#22005d",
         "on-primary-container": "#e0d2ff",
-        "background": "#0a0a0b",
+        "background": "#141218",
         "inverse-on-surface": "#322f35",
         "on-secondary-fixed-variant": "#4b4263",
         "on-surface": "#e6e0e9",
@@ -59,7 +49,7 @@ module.exports = {
         "on-primary": "#381e72",
         "secondary": "#cdc0e9",
         "inverse-primary": "#6750a4",
-        "on-background": "#ececee",
+        "on-background": "#e6e0e9",
         "surface-dim": "#141218",
         "surface-container-lowest": "#0f0d13",
         "surface-variant": "#36343a",
@@ -70,59 +60,37 @@ module.exports = {
       },
       "borderRadius": {
         "DEFAULT": "0.125rem",
-        "sm": "0.125rem",
-        "md": "0.25rem",
         "lg": "0.25rem",
-        "xl": "0.375rem",
-        "2xl": "0.5rem",
-        "full": "9999px"
+        "xl": "0.5rem",
+        "full": "0.75rem"
       },
       "spacing": {
-        "grid-margin": "2.5rem",
+        "grid-margin": "4rem",
         "grid-gutter": "2rem",
         "mobile-margin": "1.5rem",
-        "section-gap": "6.5rem"
-      },
-      "maxWidth": {
-        "wrap": "1160px",
-        "wrap-wide": "1360px",
-        "measure": "68ch"
+        "section-gap": "8rem"
       },
       "fontFamily": {
         "code-sm": [
-          "JetBrains Mono",
-          "ui-monospace",
-          "monospace"
+          "JetBrains Mono"
         ],
         "display-lg": [
-          "Inter",
-          "system-ui",
-          "sans-serif"
+          "Bricolage Grotesque"
         ],
         "headline-md": [
-          "Inter",
-          "system-ui",
-          "sans-serif"
+          "Bricolage Grotesque"
         ],
         "display-lg-mobile": [
-          "Inter",
-          "system-ui",
-          "sans-serif"
+          "Bricolage Grotesque"
         ],
         "body-lg": [
-          "Inter",
-          "system-ui",
-          "sans-serif"
+          "Hanken Grotesk"
         ],
         "body-md": [
-          "Inter",
-          "system-ui",
-          "sans-serif"
+          "Hanken Grotesk"
         ],
         "label-caps": [
-          "Inter",
-          "system-ui",
-          "sans-serif"
+          "JetBrains Mono"
         ]
       },
       "fontSize": {
@@ -134,64 +102,48 @@ module.exports = {
           }
         ],
         "display-lg": [
-          "60px",
+          "72px",
           {
-            "lineHeight": "64px",
-            "letterSpacing": "-0.035em",
-            "fontWeight": "600"
-          }
-        ],
-        "display-lg-mobile": [
-          "38px",
-          {
-            "lineHeight": "42px",
-            "letterSpacing": "-0.03em",
-            "fontWeight": "600"
+            "lineHeight": "76px",
+            "letterSpacing": "-0.04em",
+            "fontWeight": "800"
           }
         ],
         "headline-md": [
-          "26px",
+          "32px",
           {
-            "lineHeight": "34px",
-            "letterSpacing": "-0.02em",
-            "fontWeight": "600"
+            "lineHeight": "40px",
+            "fontWeight": "700"
           }
         ],
-        "headline-lg": [
-          "30px",
+        "display-lg-mobile": [
+          "44px",
           {
-            "lineHeight": "38px",
-            "letterSpacing": "-0.022em",
-            "fontWeight": "600"
+            "lineHeight": "48px",
+            "letterSpacing": "-0.02em",
+            "fontWeight": "800"
           }
         ],
         "body-lg": [
-          "17px",
+          "18px",
           {
             "lineHeight": "28px",
             "fontWeight": "400"
           }
         ],
         "body-md": [
-          "15px",
+          "16px",
           {
-            "lineHeight": "25px",
-            "fontWeight": "400"
-          }
-        ],
-        "body-sm": [
-          "13.5px",
-          {
-            "lineHeight": "22px",
+            "lineHeight": "24px",
             "fontWeight": "400"
           }
         ],
         "label-caps": [
-          "11px",
+          "12px",
           {
             "lineHeight": "16px",
-            "letterSpacing": "0.14em",
-            "fontWeight": "500"
+            "letterSpacing": "0.1em",
+            "fontWeight": "700"
           }
         ]
       }

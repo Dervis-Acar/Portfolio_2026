@@ -1,57 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('header[data-site-header]');
-    if (!header) return;
-
-    const toggle = header.querySelector('[data-menu-toggle]');
-    if (!toggle) return;
-
-    const current = (document.body.dataset.page || '').toLowerCase();
-
-    const links = [
-        ['projects.html', 'Projects'],
-        ['experience.html', 'Experience'],
-        ['stack.html', 'Stack'],
-        ['contact.html', 'Contact']
-    ];
-
-    const menu = document.createElement('div');
-    menu.id = 'mobile-menu';
-    menu.hidden = true;
-    menu.className = 'fixed left-0 right-0 top-[var(--nav-h)] z-40 md:hidden border-b border-line bg-ink';
-
-    menu.innerHTML = `
-        <nav class="wrap flex flex-col py-2">
-            ${links.map(([href, label]) => `
-            <a href="${href}"
-               class="border-b border-line py-4 text-[15px] link-quiet"
-               ${current === href.replace('.html', '') ? 'aria-current="page"' : ''}>${label}</a>`).join('')}
-            <a href="contact.html" class="btn btn-primary mt-5 mb-4 w-full">Get in touch</a>
-        </nav>
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    
+    const menuBtn = nav.querySelector('button');
+    if (!menuBtn) return;
+    
+    // Create mobile menu container
+    const mobileMenu = document.createElement('div');
+    mobileMenu.className = 'fixed top-[72px] left-0 w-full bg-surface/95 backdrop-blur-3xl border-b border-primary/20 p-6 flex flex-col gap-6 hidden md:hidden z-40 shadow-2xl';
+    
+    mobileMenu.innerHTML = `
+        <a href="projects.html" class="font-label-caps tracking-widest text-sm text-on-surface hover:text-[#00ffff] transition-colors">PROJECTS</a>
+        <a href="experience.html" class="font-label-caps tracking-widest text-sm text-on-surface hover:text-[#00ffff] transition-colors">EXPERIENCE</a>
+        <a href="stack.html" class="font-label-caps tracking-widest text-sm text-on-surface hover:text-[#00ffff] transition-colors">STACK</a>
+        <a href="contact.html" class="font-label-caps tracking-widest text-sm text-on-surface hover:text-[#00ffff] transition-colors">CONTACT</a>
+        <a href="contact.html" class="mt-4 bg-primary text-on-primary font-label-caps text-center px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all">GET IN TOUCH</a>
     `;
-
-    header.insertAdjacentElement('afterend', menu);
-
-    const icon = toggle.querySelector('.material-symbols-outlined');
-
-    const setOpen = (open) => {
-        menu.hidden = !open;
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        if (icon) icon.textContent = open ? 'close' : 'menu';
-    };
-
-    toggle.addEventListener('click', () => setOpen(menu.hidden));
-
-    menu.addEventListener('click', (e) => {
-        if (e.target.closest('a')) setOpen(false);
-    });
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !menu.hidden) setOpen(false);
-    });
-
-    const mq = window.matchMedia('(min-width: 768px)');
-    mq.addEventListener('change', (e) => {
-        if (e.matches) setOpen(false);
+    
+    document.body.appendChild(mobileMenu);
+    
+    let isOpen = false;
+    menuBtn.addEventListener('click', () => {
+        isOpen = !isOpen;
+        if (isOpen) {
+            mobileMenu.classList.remove('hidden');
+            menuBtn.innerHTML = '<span class="material-symbols-outlined">close</span>';
+        } else {
+            mobileMenu.classList.add('hidden');
+            menuBtn.innerHTML = '<span class="material-symbols-outlined">menu</span>';
+        }
     });
 });

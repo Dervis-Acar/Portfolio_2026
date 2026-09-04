@@ -1,216 +1,207 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Queens Puzzle App - DERVIS ACAR // DEV</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/site.css?v=65fd67fddb"/>
-<link rel="icon" type="image/png" href="assets/Images/favicon.png"/>
-</head>
-<body data-page="projects" class="flex min-h-screen flex-col bg-ink font-body-md text-body-md text-fg antialiased">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/site.css?v=9a2b9b099f"/>
 
-<!-- Header -->
-<header data-site-header class="fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] border-b border-line bg-ink/85 backdrop-blur-md">
-<div class="wrap flex h-full items-center justify-between gap-6">
-<a href="index.html" class="text-[12px] font-medium uppercase tracking-[0.18em] text-fg transition-colors hover:text-accent">DERVIS ACAR <span class="subtle">// DEV</span></a>
-<nav class="hidden items-center gap-8 md:flex">
-<a class="nav-link" href="projects.html" aria-current="page">Projects</a>
-<a class="nav-link" href="experience.html">Experience</a>
-<a class="nav-link" href="stack.html">Stack</a>
-<a class="nav-link" href="contact.html">Contact</a>
-</nav>
-<div class="flex items-center gap-2">
-<a href="contact.html" class="btn btn-ghost hidden md:inline-flex">Get in touch</a>
-<button data-menu-toggle type="button" aria-expanded="false" aria-label="Open menu" class="-mr-2 flex h-10 w-10 items-center justify-center text-fg-2 transition-colors hover:text-fg md:hidden">
+<link rel="icon" type="image/png" href="assets/Images/favicon.png" />
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-tertiary selection:text-on-primary font-body-md overflow-x-hidden flex flex-col">
+<!-- Ambient Underglow -->
+<div class="fixed inset-0 pointer-events-none z-[-1]">
+<div class="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-tertiary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-tertiary/5 blur-[150px]"></div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-mobile-margin md:px-grid-margin py-6 bg-surface/60 backdrop-blur-xl border-b border-primary/20 shadow-[0_0_15px_rgba(207,188,255,0.1)]">
+<a href="index.html" class="font-label-caps text-label-caps text-xs tracking-tighter text-primary hover:text-[#00ffff] transition-colors duration-300">
+            DERVIS ACAR // DEV
+        </a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="projects.html">PROJECTS</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="experience.html">EXPERIENCE</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="stack.html">STACK</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-blur-2xl hover:bg-surface/80" href="contact.html">CONTACT</a>
+</div>
+<a href="contact.html" class="hidden md:flex bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:shadow-[0_0_15px_rgba(207,188,255,0.5)] transition-all flex items-center justify-center">GET IN TOUCH</a>
+<!-- Mobile Menu Icon (Simplified) -->
+<button class="md:hidden text-primary">
 <span class="material-symbols-outlined">menu</span>
 </button>
-</div>
-</div>
-</header>
+</nav>
 
-<main class="flex-1 pt-[var(--nav-h)]">
+<main class="pt-[120px] pb-section-gap px-mobile-margin md:px-grid-margin max-w-[1920px] mx-auto flex-grow w-full">
+    <!-- Header Section -->
+    <header class="mb-12 md:mb-24 relative">
+        <div class="w-32 h-1 bg-tertiary opacity-50 pt-12 md:pt-24 mb-2"></div>
+        <div class="font-label-caps text-label-caps text-tertiary mb-8 tracking-[0.2em] uppercase">
+            <span class="opacity-50 mr-2">02 //</span> PROJECT
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative">
+            <div class="col-span-1 md:col-span-8 z-10">
+                <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8 leading-tight">
+                    QUEENS PUZZLE <br><span class="text-tertiary">APP</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
+                    A premium Android puzzle game built with highly modular Clean Architecture, featuring advanced algorithmic techniques for puzzle generation, backtracking solving, and human-like deduction logic.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="px-3 py-1 bg-tertiary/10 border border-tertiary/40 rounded text-tertiary font-code-sm text-code-sm text-xs">Kotlin</span>
+                    <span class="px-3 py-1 bg-tertiary/10 border border-tertiary/40 rounded text-tertiary font-code-sm text-code-sm text-xs">Jetpack Compose</span>
+                    <span class="px-3 py-1 bg-tertiary/10 border border-tertiary/40 rounded text-tertiary font-code-sm text-code-sm text-xs">Algorithms</span>
+                    <span class="px-3 py-1 bg-tertiary/10 border border-tertiary/40 rounded text-tertiary font-code-sm text-code-sm text-xs">Clean Architecture</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Page header -->
-<section>
-<div class="wrap pb-14 pt-20 md:pb-20 md:pt-28">
-<a href="projects.html" class="link-quiet mb-8 inline-flex items-center gap-2 text-[13px]">
-<span class="material-symbols-outlined text-[16px]">arrow_back</span> All projects
-</a>
-<p class="eyebrow mb-7"><span class="text-fg-3/60">02 //</span> Project</p>
-<h1 class="mb-7 font-display-lg text-display-lg-mobile md:text-display-lg">
-Queens Puzzle<br/><span class="text-fg-2">App</span>
-</h1>
-<p class="measure mb-8 font-body-lg text-body-lg text-fg-2">
-A premium Android puzzle game built with highly modular Clean Architecture, featuring advanced algorithmic techniques for puzzle generation, backtracking solving, and human-like deduction logic.
-</p>
-<div class="flex flex-wrap gap-2">
-<span class="tag">Kotlin</span>
-<span class="tag">Jetpack Compose</span>
-<span class="tag">Algorithms</span>
-<span class="tag">Clean Architecture</span>
-</div>
-</div>
-</section>
+    <!-- Deep Dive Content -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+        <!-- Main Content -->
+        <div class="col-span-12 md:col-span-8 space-y-section-gap">
+            
+            <!-- Section 1: Core Domain Algorithms -->
+            <section>
+                <div class="flex items-center gap-4 mb-8 border-b border-outline-variant/30 pb-4">
+                    <span class="material-symbols-outlined text-tertiary text-3xl">psychology</span>
+                    <h2 class="font-display-md text-headline-lg text-on-background">Core Domain Algorithms</h2>
+                </div>
+                <div class="space-y-6 text-on-surface-variant font-body-md leading-relaxed">
+                    <p>The app does not rely on hardcoded puzzles; instead, it uses a highly concurrent build-time generator to construct valid, unique boards dynamically.</p>
+                    
+                    <div class="glass-panel p-6 rounded border-l-2 border-tertiary space-y-4">
+                        <h3 class="font-headline-md text-white text-lg">1. Puzzle Generator</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong class="text-white">Random Solution Generation:</strong> Starts by placing N queens on an empty NxN grid using the Minimum Remaining Values (MRV) heuristic. Ensures no row, column, or diagonal touches.</li>
+                            <li><strong class="text-white">Weighted Flood-Fill:</strong> Region boundaries are mapped around generated queen "seeds" using a weighted flood-fill algorithm, guaranteeing one queen per region.</li>
+                            <li><strong class="text-white">Quality Assurance & Validation:</strong> Puzzles are filtered based on compactness rules, and both the Solver and Deduction Engine must verify that the puzzle has exactly one unique solution.</li>
+                        </ul>
+                    </div>
 
-<!-- Deep dive -->
-<section class="border-t border-line">
-<div class="wrap py-16 md:py-20">
-<div class="grid grid-cols-12 gap-x-0 md:gap-x-8 gap-y-16">
+                    <div class="glass-panel p-6 rounded border-l-2 border-tertiary space-y-4">
+                        <h3 class="font-headline-md text-white text-lg">2. Puzzle Solver (Backtracking)</h3>
+                        <p>The <code>PuzzleSolver</code> determines whether a randomly generated grid is mathematically valid.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong class="text-white">Forward Checking (Propagation):</strong> Placing a queen immediately removes conflicting cells from remaining unassigned rows.</li>
+                            <li><strong class="text-white">Solution Limit:</strong> Halts the search after finding 2 solutions to prove uniqueness quickly.</li>
+                        </ul>
+                    </div>
 
-<!-- Main content -->
-<div class="col-span-12 space-y-16 md:col-span-7 md:space-y-20">
+                    <div class="glass-panel p-6 rounded border-l-2 border-tertiary space-y-4">
+                        <h3 class="font-headline-md text-white text-lg">3. Deduction Engine</h3>
+                        <p>Unlike the brute-force Solver, the <code>DeductionEngine</code> mimics human reasoning to provide hints and determine difficulty.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong class="text-white">Techniques:</strong> Detects Singletons, Line Locks, and Subset Locks.</li>
+                            <li><strong class="text-white">Speculative Passes:</strong> Attempts hypothetical placements to check for immediate contradictions ("dead-ends").</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-<!-- Core Domain Algorithms -->
-<section>
-<div class="mb-8 flex items-center gap-3 border-b border-line pb-4">
-<span class="material-symbols-outlined text-[20px] text-fg-3">psychology</span>
-<h2 class="font-headline-md text-headline-md text-fg">Core Domain Algorithms</h2>
-</div>
-<p class="mb-8 font-body-md text-body-md text-fg-2">
-The app does not rely on hardcoded puzzles; instead, it uses a highly concurrent build-time generator to construct valid, unique boards dynamically.
-</p>
+            <!-- Section 2: Game Mechanics & State -->
+            <section>
+                <div class="flex items-center gap-4 mb-8 border-b border-outline-variant/30 pb-4">
+                    <span class="material-symbols-outlined text-tertiary text-3xl">sports_esports</span>
+                    <h2 class="font-display-md text-headline-lg text-on-background">Game Mechanics & State</h2>
+                </div>
+                <div class="space-y-6 text-on-surface-variant font-body-md leading-relaxed">
+                    <div class="glass-panel p-6 rounded">
+                        <h3 class="font-headline-md text-tertiary text-xl mb-4">Game Engine</h3>
+                        <p class="mb-4">The <code>GameEngine</code> acts as the pure Kotlin state machine for a live puzzle session.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong class="text-white">Undo/Redo Stack:</strong> Manages historic states, capturing user moves to allow infinite reversions.</li>
+                            <li><strong class="text-white">Auto-Mark System:</strong> Automatically inserts "Cross" markers on all adjacent, same-row, same-col, and same-region cells to reduce tedious tapping.</li>
+                            <li><strong class="text-white">Revert to Mistake:</strong> Dynamically unwinds state history backwards until the exact incorrect cell is isolated, placing a pulsating red highlight over it.</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel p-6 rounded">
+                        <h3 class="font-headline-md text-tertiary text-xl mb-4">Rule Engine Validation</h3>
+                        <p>The <code>RuleEngine</code> is responsible for real-time validation checks during gameplay. It instantly identifies conflicts (Row Duplicate, Column Duplicate, Region Duplicate, Adjacent Queens) and flags them for the UI renderer.</p>
+                    </div>
+                </div>
+            </section>
 
-<div class="space-y-8">
-<article class="border-l border-line-2 pl-6">
-<h3 class="mb-3 font-headline-md text-[17px] leading-6 text-fg">1. Puzzle Generator</h3>
-<ul class="prose-list space-y-2.5 font-body-md text-body-md">
-<li><span class="text-fg">Random Solution Generation:</span> Starts by placing N queens on an empty NxN grid using the Minimum Remaining Values (MRV) heuristic. Ensures no row, column, or diagonal touches.</li>
-<li><span class="text-fg">Weighted Flood-Fill:</span> Region boundaries are mapped around generated queen &quot;seeds&quot; using a weighted flood-fill algorithm, guaranteeing one queen per region.</li>
-<li><span class="text-fg">Quality Assurance &amp; Validation:</span> Puzzles are filtered based on compactness rules, and both the Solver and Deduction Engine must verify that the puzzle has exactly one unique solution.</li>
-</ul>
-</article>
+            <!-- Section 3: Progression & Campaign -->
+            <section>
+                <div class="flex items-center gap-4 mb-8 border-b border-outline-variant/30 pb-4">
+                    <span class="material-symbols-outlined text-tertiary text-3xl">route</span>
+                    <h2 class="font-display-md text-headline-lg text-on-background">Progression & Campaign</h2>
+                </div>
+                <div class="space-y-6 text-on-surface-variant font-body-md leading-relaxed">
+                    <p>The progression system is structured as a directed campaign graph rather than a simple linear list. Each <code>CampaignNode</code> ties to a specific puzzle ID, grouping them by difficulty or introduced techniques. The state correctly resolves the <code>nextPuzzleId</code> upon level completion for seamless transitions.</p>
+                    <p>The Player Profile tracks statistics over time (perfect clears, hints used, mistakes made) and rewards base experience scaled by the puzzle grid size and difficulty.</p>
+                </div>
+            </section>
+        </div>
 
-<article class="border-l border-line-2 pl-6">
-<h3 class="mb-3 font-headline-md text-[17px] leading-6 text-fg">2. Puzzle Solver (Backtracking)</h3>
-<p class="mb-3 font-body-md text-body-md text-fg-2">The <code>PuzzleSolver</code> determines whether a randomly generated grid is mathematically valid.</p>
-<ul class="prose-list space-y-2.5 font-body-md text-body-md">
-<li><span class="text-fg">Forward Checking (Propagation):</span> Placing a queen immediately removes conflicting cells from remaining unassigned rows.</li>
-<li><span class="text-fg">Solution Limit:</span> Halts the search after finding 2 solutions to prove uniqueness quickly.</li>
-</ul>
-</article>
-
-<article class="border-l border-line-2 pl-6">
-<h3 class="mb-3 font-headline-md text-[17px] leading-6 text-fg">3. Deduction Engine</h3>
-<p class="mb-3 font-body-md text-body-md text-fg-2">Unlike the brute-force Solver, the <code>DeductionEngine</code> mimics human reasoning to provide hints and determine difficulty.</p>
-<ul class="prose-list space-y-2.5 font-body-md text-body-md">
-<li><span class="text-fg">Techniques:</span> Detects Singletons, Line Locks, and Subset Locks.</li>
-<li><span class="text-fg">Speculative Passes:</span> Attempts hypothetical placements to check for immediate contradictions (&quot;dead-ends&quot;).</li>
-</ul>
-</article>
-</div>
-</section>
-
-<!-- Game Mechanics & State -->
-<section>
-<div class="mb-8 flex items-center gap-3 border-b border-line pb-4">
-<span class="material-symbols-outlined text-[20px] text-fg-3">sports_esports</span>
-<h2 class="font-headline-md text-headline-md text-fg">Game Mechanics &amp; State</h2>
-</div>
-<div class="space-y-8">
-<article class="border-l border-line-2 pl-6">
-<h3 class="mb-3 font-headline-md text-[17px] leading-6 text-fg">Game Engine</h3>
-<p class="mb-3 font-body-md text-body-md text-fg-2">The <code>GameEngine</code> acts as the pure Kotlin state machine for a live puzzle session.</p>
-<ul class="prose-list space-y-2.5 font-body-md text-body-md">
-<li><span class="text-fg">Undo/Redo Stack:</span> Manages historic states, capturing user moves to allow infinite reversions.</li>
-<li><span class="text-fg">Auto-Mark System:</span> Automatically inserts &quot;Cross&quot; markers on all adjacent, same-row, same-col, and same-region cells to reduce tedious tapping.</li>
-<li><span class="text-fg">Revert to Mistake:</span> Dynamically unwinds state history backwards until the exact incorrect cell is isolated, placing a pulsating red highlight over it.</li>
-</ul>
-</article>
-<article class="border-l border-line-2 pl-6">
-<h3 class="mb-3 font-headline-md text-[17px] leading-6 text-fg">Rule Engine Validation</h3>
-<p class="font-body-md text-body-md text-fg-2">The <code>RuleEngine</code> is responsible for real-time validation checks during gameplay. It instantly identifies conflicts (Row Duplicate, Column Duplicate, Region Duplicate, Adjacent Queens) and flags them for the UI renderer.</p>
-</article>
-</div>
-</section>
-
-<!-- Progression & Campaign -->
-<section>
-<div class="mb-8 flex items-center gap-3 border-b border-line pb-4">
-<span class="material-symbols-outlined text-[20px] text-fg-3">route</span>
-<h2 class="font-headline-md text-headline-md text-fg">Progression &amp; Campaign</h2>
-</div>
-<div class="space-y-5 font-body-md text-body-md text-fg-2">
-<p>The progression system is structured as a directed campaign graph rather than a simple linear list. Each <code>CampaignNode</code> ties to a specific puzzle ID, grouping them by difficulty or introduced techniques. The state correctly resolves the <code>nextPuzzleId</code> upon level completion for seamless transitions.</p>
-<p>The Player Profile tracks statistics over time (perfect clears, hints used, mistakes made) and rewards base experience scaled by the puzzle grid size and difficulty.</p>
-</div>
-</section>
-
-</div>
-
-<!-- Sidebar -->
-<aside class="col-span-12 md:col-span-4 md:col-start-9">
-<div class="md:sticky md:top-24">
-<h2 class="eyebrow mb-6 border-b border-line pb-4">Tech Stack Overview</h2>
-<div class="space-y-7">
-
-<div>
-<h3 class="mb-2 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">1. Core Android &amp; UI</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">
-<span class="text-fg">Language:</span> Kotlin<br/>
-<span class="text-fg">UI Toolkit:</span> Jetpack Compose<br/>
-<span class="text-fg">Navigation:</span> Jetpack Navigation Compose
-</p>
-</div>
-
-<div>
-<h3 class="mb-2 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">2. Architecture &amp; Patterns</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">
-<span class="text-fg">Architecture:</span> Clean Architecture (Modules: :app, :core, :domain, :data, :feature)<br/>
-<span class="text-fg">Pattern:</span> MVVM with StateFlows<br/>
-<span class="text-fg">DI:</span> Dagger Hilt
-</p>
-</div>
-
-<div>
-<h3 class="mb-2 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">3. Concurrency</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">
-<span class="text-fg">Async:</span> Kotlin Coroutines<br/>
-<span class="text-fg">State Management:</span> StateFlow / SharedFlow
-</p>
-</div>
-
-<div>
-<h3 class="mb-2 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">4. Build System</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">
-Gradle with Kotlin DSL, Version Catalogs, Java 17
-</p>
-</div>
-
-<div>
-<h3 class="mb-2 font-code-sm text-[11px] uppercase tracking-[0.12em] text-fg-3">5. Backend &amp; Auth</h3>
-<p class="font-body-md text-[14px] leading-[23px] text-fg-2">
-<span class="text-fg">Backend:</span> C# / ASP.NET Core<br/>
-<span class="text-fg">Auth:</span> OAuth 2.0 / OpenID Connect (Google/LinkedIn) with JWT<br/>
-<span class="text-fg">Database:</span> Entity Framework Core
-</p>
-</div>
-
-</div>
-</div>
-</aside>
-
-</div>
-</div>
-</section>
-
+        <!-- Sidebar: Tech Stack -->
+        <div class="col-span-12 md:col-span-4 mt-12 md:mt-0">
+            <div class="sticky top-[120px] space-y-8">
+                <!-- Tech Stack Panel -->
+                <div class="glass-panel p-8 rounded-[4px] border-t-2 border-tertiary">
+                    <h3 class="font-label-caps text-label-caps text-tertiary mb-6 uppercase tracking-wider">Tech Stack Overview</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-code-sm text-[11px] text-outline uppercase tracking-widest mb-2">1. Core Android & UI</h4>
+                            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                                <span class="text-white">Language:</span> Kotlin<br/>
+                                <span class="text-white">UI Toolkit:</span> Jetpack Compose<br/>
+                                <span class="text-white">Navigation:</span> Jetpack Navigation Compose
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-code-sm text-[11px] text-outline uppercase tracking-widest mb-2">2. Architecture & Patterns</h4>
+                            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                                <span class="text-white">Architecture:</span> Clean Architecture (Modules: :app, :core, :domain, :data, :feature)<br/>
+                                <span class="text-white">Pattern:</span> MVVM with StateFlows<br/>
+                                <span class="text-white">DI:</span> Dagger Hilt
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-code-sm text-[11px] text-outline uppercase tracking-widest mb-2">3. Concurrency</h4>
+                            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                                <span class="text-white">Async:</span> Kotlin Coroutines<br/>
+                                <span class="text-white">State Management:</span> StateFlow / SharedFlow
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-code-sm text-[11px] text-outline uppercase tracking-widest mb-2">4. Build System</h4>
+                            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                                Gradle with Kotlin DSL, Version Catalogs, Java 17
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-code-sm text-[11px] text-outline uppercase tracking-widest mb-2">5. Backend & Auth</h4>
+                            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                                <span class="text-white">Backend:</span> C# / ASP.NET Core<br/>
+                                <span class="text-white">Auth:</span> OAuth 2.0 / OpenID Connect (Google/LinkedIn) with JWT<br/>
+                                <span class="text-white">Database:</span> Entity Framework Core
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <!-- Footer -->
-<footer class="mt-auto border-t border-line">
-<div class="wrap flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between">
-<p class="text-[13px] text-fg-3">©2026 Dervis Acar. All rights reserved.</p>
-<nav class="flex flex-wrap gap-7 text-[13px]">
-<a class="link-quiet" href="https://github.com/Dervis-Acar" target="_blank" rel="noopener">GitHub</a>
-<a class="link-quiet" href="https://www.linkedin.com/in/dervis-acar" target="_blank" rel="noopener">LinkedIn</a>
-<a class="link-quiet" href="mailto:acar@dervis.be">Email</a>
-</nav>
+<footer class="bg-surface grid grid-cols-12 gap-4 px-mobile-margin md:px-grid-margin py-4 md:py-6 w-full items-center border-t border-outline-variant/30 flat no shadows mt-auto">
+<div class="col-span-12 md:col-span-6 font-label-caps text-label-caps text-xs text-on-surface-variant">
+            ©2026 Dervis Acar. All rights reserved.
+        </div>
+<div class="col-span-12 md:col-span-6 flex flex-wrap gap-6 md:justify-end">
+<a class="font-label-caps text-label-caps text-xs text-on-surface hover:text-tertiary hover:skew-x-2 transition-transform hover:text-glow-primary transition-all duration-300" href="https://github.com/Dervis-Acar" target="_blank">GITHUB</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface hover:text-tertiary hover:skew-x-2 transition-transform hover:text-glow-primary transition-all duration-300" href="https://www.linkedin.com/in/dervis-acar" target="_blank">LINKEDIN</a>
+<a class="font-label-caps text-label-caps text-xs text-on-surface hover:text-tertiary hover:skew-x-2 transition-transform hover:text-glow-primary transition-all duration-300" href="mailto:acar@dervis.be">EMAIL</a>
 </div>
 </footer>
 
-<script src="assets/js/mobile-menu.js?v=717742d14d"></script>
-</body>
-</html>
+<script src="assets/js/mobile-menu.js?v=5966b4758d"></script>
+</body></html>
