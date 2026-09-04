@@ -1,4 +1,14 @@
-name: Deploy to Oracle Server
+name: Deploy to Oracle server
+
+# Pull-based deploy, matching the PlannerPWA setup: appleboy/ssh-action
+# connects with three secrets, then the server syncs itself from GitHub.
+#
+#   ORACLE_HOST      server IP or hostname
+#   ORACLE_USER      ssh user (e.g. ubuntu)
+#   ORACLE_SSH_KEY   the deploy private key, whole file including BEGIN/END
+#
+# The repo is public, so the server fetches anonymously - no GITHUB_TOKEN is
+# written into .git/config on disk.
 
 on:
   push:
@@ -13,60 +23,62 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    name: Build & Verify CSS
+  # The server deploys whatever is committed, so the committed stylesheet has
+  # to match its source. Without this guard, editing src/site.css and
+  # forgetting `npm run build:css` would silently ship the previous styles.
+  verify-build:
+    name: Verify committed CSS is up to date
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Build and verify stylesheet
+      - name: Rebuild and compare against what is committed
         run: |
           npm run build:css
-          npm run verify
+          # Scope the comparison to the build's outputs: the compiled
+          # stylesheet and the hash stamps it writes into each page.
+          if ! git diff --quiet -- assets/css/site.css ./*.html; then
+            echo "::error::assets/css/site.css is out of date. Run 'npm run build:css' and commit the result."
+            git --no-pager diff --stat -- assets/css/site.css ./*.html
+            exit 1
+          fi
+          echo "Committed CSS matches src/site.css."
 
   deploy:
-    name: Deploy to Oracle VM
-    needs: build
+    name: Deploy
+    needs: verify-build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Oracle VM via SSH
+      - name: Sync the server from GitHub
         uses: appleboy/ssh-action@v1.0.3
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
         with:
           host: ${{ secrets.ORACLE_HOST }}
           username: ${{ secrets.ORACLE_USER }}
           key: ${{ secrets.ORACLE_SSH_KEY }}
-          envs: GH_TOKEN,GH_REPO
+          script_stop: true
           script: |
+            set -eu
             cd /var/www/dervis.be
+
             if [ ! -d .git ]; then
-              git init
-              git remote add origin https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git
+              git init -b master
+              git remote add origin https://github.com/Dervis-Acar/Portfolio_2026.git
             fi
-            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git
+            git remote set-url origin https://github.com/Dervis-Acar/Portfolio_2026.git
+
             git fetch origin master
             git reset --hard origin/master
-            echo "Successfully deployed commit $(git rev-parse --short HEAD) to /var/www/dervis.be"
 
-      - name: Smoke test live site
-        run: |
-          echo "Verifying pages on https://dervis.be..."
-          for page in "" projects.html experience.html stack.html contact.html \
-                      project-rag.html project-queens-app.html case-study-rag.html; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://dervis.be/$page")
-            echo "$code https://dervis.be/$page"
-            [ "$code" = "200" ] || { echo "::error::https://dervis.be/$page returned $code"; exit 1; }
-          done
-          echo "All pages returned 200 OK!"
+            # reset --hard only touches tracked files. Without this, anything
+            # left behind by an earlier deploy - including the old styles.css
+            # and tailwind-config.js - lingers in the web root forever.
+            git clean -fd
+
+            echo "deployed $(git rev-parse --short HEAD) to $(pwd)"
