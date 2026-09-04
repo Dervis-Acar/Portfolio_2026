@@ -22,8 +22,21 @@ const ASSETS = [
 
 const check = process.argv.includes('--check');
 
-const hashOf = (file) =>
-  createHash('sha256').update(readFileSync(file)).digest('hex').slice(0, 10);
+/**
+ * Hash the file's CONTENT, not its byte encoding.
+ *
+ * CRLF is normalised away first because otherwise the hash depends on the
+ * machine: a Windows checkout produced 2277638c39 for mobile-menu.js while
+ * the Linux CI runner produced 717742d14d for the same file, so the stamp
+ * committed from Windows could never match what CI computed. Normalising
+ * makes the hash identical everywhere regardless of git's eol settings,
+ * which is all a cache-busting token needs - it must change when the
+ * content changes and be stable when it does not.
+ */
+const hashOf = (file) => {
+  const normalised = readFileSync(file).toString('binary').replace(/\r\n/g, '\n');
+  return createHash('sha256').update(Buffer.from(normalised, 'binary')).digest('hex').slice(0, 10);
+};
 
 const pages = readdirSync('.').filter((f) => f.endsWith('.html'));
 const changed = new Set();
