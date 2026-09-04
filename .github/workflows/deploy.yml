@@ -3,6 +3,11 @@ name: Deploy to Oracle server
 # Builds the stylesheet, then deploys the static site to the Oracle Ubuntu
 # instance over SSH. Every server-specific value lives in GitHub Secrets,
 # so this file never needs editing.
+#
+# Secrets are passed through `env:` rather than interpolated into the shell
+# with ${{ }}. That matters twice over: an unset secret would otherwise be
+# substituted as empty text and silently produce a malformed command line,
+# and a secret containing quotes or backticks would be executed as shell.
 
 on:
   push:
@@ -30,6 +35,47 @@ jobs:
       - name: Check out the commit being deployed
         uses: actions/checkout@v4
 
+      # Fail early and legibly when configuration is missing, instead of
+      # letting ssh die on malformed arguments.
+      - name: Check required secrets
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          missing=""
+          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS DEPLOY_PATH; do
+            if [ -z "${!name}" ]; then
+              echo "  MISSING   $name"
+              missing="$missing $name"
+            else
+              echo "  ok        $name"
+            fi
+          done
+
+          if [ -n "$missing" ]; then
+            echo ""
+            echo "::error::Missing repository secrets:$missing"
+            cat <<MSG
+          Add them under:
+            https://github.com/${{ github.repository }}/settings/secrets/actions
+
+          They must be **repository secrets** on the "Secrets" tab. Values put
+          on the "Variables" tab, or scoped to an Environment this workflow does
+          not declare, are not visible here.
+          MSG
+            exit 1
+          fi
+
+          # A private key pasted without its trailing newline, or with the
+          # header mangled, fails later in a much more confusing way.
+          case "$SSH_PRIVATE_KEY" in
+            *"-----BEGIN"*"PRIVATE KEY-----"*) ;;
+            *) echo "::error::SSH_PRIVATE_KEY does not look like a private key. Paste the whole file including the BEGIN/END lines (the key file WITHOUT the .pub extension)."; exit 1 ;;
+          esac
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -53,30 +99,55 @@ jobs:
             echo "::error::site.css is suspiciously small (${bytes} bytes) - Tailwind likely produced no utilities"
             exit 1
           fi
-          grep -q 'cdn.tailwindcss.com' ./*.html && { echo "::error::a page still loads the Tailwind CDN"; exit 1; } || true
+          if grep -l 'cdn.tailwindcss.com' ./*.html; then
+            echo "::error::a page still loads the Tailwind CDN"
+            exit 1
+          fi
           npm run verify
 
       - name: Install SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          printf '%s\n' "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
       - name: Verify SSH connection
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          ssh -i ~/.ssh/deploy_key \
-              -p "${{ secrets.SSH_PORT || '22' }}" \
-              -o BatchMode=yes \
-              "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
-              'echo "connected as $(whoami) on $(hostname)"; test -d "${{ secrets.DEPLOY_PATH }}" || { echo "DEPLOY_PATH does not exist: ${{ secrets.DEPLOY_PATH }}"; exit 1; }'
+          PORT="${SSH_PORT:-22}"
+          echo "Connecting to ${SSH_USER}@${SSH_HOST} on port ${PORT}"
+
+          ssh -i ~/.ssh/deploy_key -p "$PORT" -o BatchMode=yes \
+              "${SSH_USER}@${SSH_HOST}" bash -s -- "$DEPLOY_PATH" <<'REMOTE'
+          set -eu
+          path="$1"
+          echo "connected as $(whoami) on $(hostname)"
+          [ -d "$path" ] || { echo "DEPLOY_PATH does not exist: $path"; exit 1; }
+          [ -w "$path" ] || { echo "DEPLOY_PATH is not writable by $(whoami): $path"; exit 1; }
+          echo "target ok: $path"
+          REMOTE
 
       - name: Deploy
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
+          PORT="${SSH_PORT:-22}"
           DRY=""
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          if [ "$DRY_RUN" = "true" ]; then
             DRY="--dry-run"
             echo "::notice::DRY RUN - nothing will be written to the server"
           fi
@@ -84,29 +155,30 @@ jobs:
           rsync -rlptvz --delete $DRY \
             --exclude-from=.deployignore \
             --human-readable \
-            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || '22' }} -o BatchMode=yes" \
-            ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/"
+            -e "ssh -i ~/.ssh/deploy_key -p $PORT -o BatchMode=yes" \
+            ./ "${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}/"
 
       - name: Smoke test the live site
         if: ${{ inputs.dry_run != true }}
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
         run: |
-          URL="${{ vars.SITE_URL }}"
-          if [ -z "$URL" ]; then
+          if [ -z "$SITE_URL" ]; then
             echo "::notice::SITE_URL variable not set - skipping smoke test"
             exit 0
           fi
 
           for page in "" projects.html experience.html stack.html contact.html \
                       project-rag.html project-queens-app.html; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$URL/$page")
-            echo "$code  $URL/$page"
-            [ "$code" = "200" ] || { echo "::error::$URL/$page returned $code"; exit 1; }
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$SITE_URL/$page")
+            echo "$code  $SITE_URL/$page"
+            [ "$code" = "200" ] || { echo "::error::$SITE_URL/$page returned $code"; exit 1; }
           done
 
-          # The stylesheet is the thing that broke last time: confirm the exact
+          # The stylesheet is the thing that broke before: confirm the exact
           # hashed URL the live homepage asks for actually resolves.
-          css=$(curl -s --max-time 20 "$URL/" | grep -o 'assets/css/site\.css?v=[a-f0-9]*' | head -1)
+          css=$(curl -s --max-time 20 "$SITE_URL/" | grep -o 'assets/css/site\.css?v=[a-f0-9]*' | head -1)
           [ -n "$css" ] || { echo "::error::homepage references no stylesheet"; exit 1; }
-          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$URL/$css")
-          echo "$code  $URL/$css"
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$SITE_URL/$css")
+          echo "$code  $SITE_URL/$css"
           [ "$code" = "200" ] || { echo "::error::stylesheet $css returned $code"; exit 1; }
