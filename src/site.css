@@ -112,4 +112,34 @@ svg[viewBox="0 0 1400 680"] {
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* ── Ambient underglow ───────────────────────────────────────
+   Two soft colour washes behind the page.
+
+   These were previously two large rounded divs carrying
+   blur-[120px] and blur-[150px]. A filter blur that wide forces the
+   compositor to allocate and re-blur a layer bigger than the viewport
+   on every paint; iOS Safari (and therefore every browser on iPhone,
+   since they all run WebKit) held a blank white screen for seconds
+   before the first frame appeared.
+
+   Radial gradients paint the same look in a single cheap pass, with no
+   filter, no extra layer, and no per-frame blur work. */
+
+.ambient-glow,
+.ambient-glow-alt {
+    background-repeat: no-repeat;
+}
+
+.ambient-glow {
+    background-image:
+        radial-gradient(50vw 50vw at 15% 8%, rgba(207, 188, 255, 0.05), transparent 70%),
+        radial-gradient(60vw 60vw at 85% 92%, rgba(0, 255, 255, 0.05), transparent 70%);
+}
+
+.ambient-glow-alt {
+    background-image:
+        radial-gradient(50vw 50vw at 85% 8%, rgba(231, 195, 101, 0.05), transparent 70%),
+        radial-gradient(60vw 60vw at 15% 92%, rgba(231, 195, 101, 0.05), transparent 70%);
+}
+
 @tailwind utilities;
